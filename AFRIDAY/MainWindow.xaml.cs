@@ -29,16 +29,17 @@ namespace AFRIDAY
         SolidColorBrush labelOriginalColor = new SolidColorBrush();
         Label[] keyLabels = new Label[93];
         Ellipse[] key = new Ellipse[93];
-
         private readonly Dictionary<Key, Label> labelMappings;
         private bool shiftKeyPressed = false;
         private bool capsLockEnabled = false;
+        private bool isEventHandlersEnabled = false;
         //string defaultMessage = "Your Message will appear here"; // Default message text
         //string eMessage = "Encrypted Message will appear here"; // Default message text
 
         public MainWindow()
         {
             InitializeComponent();
+            isEventHandlersEnabled = false; // Initially disable event handlers
 
             key[0] = eclipse1;
             key[1] = eclipse2;
@@ -236,7 +237,7 @@ namespace AFRIDAY
             originalColor.Color = Color.FromRgb(125, 124, 124); //BGcolor of the eclipse
             labelOutputColor.Color = Color.FromRgb(0, 0, 0); //Color of the label
             labelOriginalColor.Color = Color.FromRgb(255, 255, 255); //ewan ko
-
+   
             labelMappings = new Dictionary<Key, Label>
             {
                 //`12345
@@ -298,10 +299,23 @@ namespace AFRIDAY
                 { Key.Space, spacebar },
                 { Key.LeftShift, shift },
                 { Key.RightShift, shift },
-                { Key.CapsLock, shiftlock }
+                { Key.CapsLock, shiftlock },
+                { Key.Enter, _return },
+                { Key.Back, back },
+                { Key.Tab, tab }
             };
 
 
+        }
+
+        private void EnableEventHandlers()
+        {
+            isEventHandlersEnabled = true;
+        }
+
+        private void DisableEventHandlers()
+        {
+            isEventHandlersEnabled = false;
         }
 
         void updateDisplayCount()
@@ -411,7 +425,7 @@ namespace AFRIDAY
                     btnMinusHours1.IsEnabled = true;
                     MenuOpen.IsEnabled = true;
                     cbxReflector.IsEnabled = true;
-                    btnReset.IsEnabled = true;
+                    btnReset.IsEnabled = true;                
                 }
             }
         }
@@ -577,6 +591,7 @@ namespace AFRIDAY
                 MenuOpen.IsEnabled = false;
                 cbxReflector.IsEnabled = false;
                 tbxInput.Focus();
+                EnableEventHandlers();
             }
         }
 
@@ -1158,6 +1173,7 @@ namespace AFRIDAY
                 //tbxRingFilePath.Text = "";
                 //lblRingCount.Content = "Ring Count: ";
                 //lblRingContentCount.Content = "Ring Count Content: ";
+                DisableEventHandlers();
                 tbxInput.Text = "";
                 tbxOutput.Text = "";
                 cbxReflector.IsChecked = false;
@@ -1171,6 +1187,7 @@ namespace AFRIDAY
                 updateDisplayCount();
                 EnigmaClass.offsetRotors();
                 btnSetIsClicked = false;
+                DisableEventHandlers();
                 btnPlusSeconds1.IsEnabled = true;
                 btnPlusMinutes1.IsEnabled = true;
                 btnPlusHours1.IsEnabled = true;
@@ -1185,7 +1202,7 @@ namespace AFRIDAY
                 btnMinusHours2.IsEnabled = false;
                 btnSet.IsEnabled = false;
                 cbxReflector.IsEnabled = true;
-                MenuOpen.IsEnabled = true;
+                MenuOpen.IsEnabled = true;                
                 EnigmaClass.checkboxIsChecked = false;
                 for (int x = 0; x < key.Length; x++)
                 {
@@ -1199,6 +1216,11 @@ namespace AFRIDAY
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!isEventHandlersEnabled)
+            {
+                // Event handlers are disabled, do nothing
+                return;
+            }
             if (e.Key == Key.LeftShift || e.Key == Key.RightShift) // Handle the Shift key
             {
                 shiftKeyPressed = true;
@@ -1384,7 +1406,11 @@ namespace AFRIDAY
 
             private void Window_KeyUp(object sender, KeyEventArgs e)
             {
-
+            if (!isEventHandlersEnabled)
+            {
+                // Event handlers are disabled, do nothing
+                return;
+            }
 
             if (shiftKeyPressed)
             {
