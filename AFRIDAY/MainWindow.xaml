@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AFRIDAY"
         mc:Ignorable="d"
-         Title="Enigma Machine" Height="900" Width="1290" Background="LightGray" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
+         Title="Enigma Machine" Height="778" Width="1319" Background="LightGray" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
     <Grid>
-        <StackPanel Margin="0,0,0,556">
+        <StackPanel Margin="0,0,0,664">
             <Menu Background="#F1EFEF">
                 <MenuItem Header="File">
                     <MenuItem 
@@ -39,40 +39,40 @@ VerticalAlignment="Bottom">
                 </StackPanel>
             </StatusBar>
         </StatusBar>
-        <Button x:Name="btnPlusSeconds1" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="796,477,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnPlusSeconds1_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnPlusMinutes1" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="867,477,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnPlusMinutes1_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnPlusHours1" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="937,477,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnPlusHours1_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnMinusSeconds1" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="796,531,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnMinusSeconds1_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnMinusMinutes1" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="867,531,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnMinusMinutes1_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnMinusHours1" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="937,531,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnMinusHours1_Click" Height="24" Background="#FF9EFFE9"/>
-        <Label Content="Ring Selection" HorizontalAlignment="Left" Margin="823,412,0,0" VerticalAlignment="Top" Width="124" FontSize="14" FontWeight="Bold" Height="33"/>
-        <Label Content="First Ring" HorizontalAlignment="Left" Margin="779,441,0,0" VerticalAlignment="Top" Height="29" Width="61"/>
-        <Label Content="Second Ring" HorizontalAlignment="Left" Margin="849,441,0,0" VerticalAlignment="Top" Height="29" Width="75"/>
-        <Label Content="Third Ring" HorizontalAlignment="Left" Margin="929,443,0,0" VerticalAlignment="Top" Height="29" Width="66"/>
-        <Button x:Name="btnPlusSeconds2" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="1042,475,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnPlusSeconds2_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnPlusMinutes2" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="1112,475,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnPlusMinutes2_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnPlusHours2" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="1183,475,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnPlusHours2_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnMinusSeconds2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="1042,531,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnMinusSeconds2_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnMinusMinutes2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="1112,531,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnMinusMinutes2_Click" Height="24" Background="#FF9EFFE9"/>
-        <Button x:Name="btnMinusHours2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="1183,531,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnMinusHours2_Click" Height="24" Background="#FF9EFFE9"/>
-        <Label Content="Letter Arangement" HorizontalAlignment="Left" Margin="1068,410,0,0" VerticalAlignment="Top" Width="137" FontSize="14" FontWeight="Bold" Height="33"/>
-        <Label Content="First Ring" HorizontalAlignment="Left" Margin="1024,439,0,0" VerticalAlignment="Top" Height="29" Width="60"/>
-        <Label Content="Second Ring" HorizontalAlignment="Left" Margin="1093,439,0,0" VerticalAlignment="Top" Height="29" Width="60"/>
-        <Label Content="Third Ring" HorizontalAlignment="Left" Margin="1168,439,0,0" VerticalAlignment="Top" Height="29" Width="47"/>
-        <TextBox x:Name="tbxInput" HorizontalAlignment="Left" Height="138" Margin="777,69,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="426" KeyDown="tbxInput_KeyDown" PreviewKeyDown="tbxInput_PreviewKeyDown" ToolTip="This is where the inputed message displays" FontSize="14"/>
-        <Button x:Name="btnSet" Content="Set" IsEnabled="False" HorizontalAlignment="Left" Margin="1045,566,0,0" VerticalAlignment="Top" Width="161" Click="btnSet_Click" Height="29" Background="#FF9EFFE9" ToolTip="Save the settings"/>
-        <Label x:Name="lblInput" Content="Input:" HorizontalAlignment="Left" Margin="777,43,0,0" VerticalAlignment="Top" Width="52"/>
-        <Label x:Name="lblOutput" Content="Encrypted:" HorizontalAlignment="Left" Margin="777,212,0,0" VerticalAlignment="Top" Width="72"/>
+        <Button x:Name="btnPlusSeconds1" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="44,543,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnPlusSeconds1_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnPlusMinutes1" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="116,543,0,0" VerticalAlignment="Top" Width="22" FontSize="13" Click="btnPlusMinutes1_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnPlusHours1" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="186,543,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnPlusHours1_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnMinusSeconds1" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="44,597,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnMinusSeconds1_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnMinusMinutes1" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="116,597,0,0" VerticalAlignment="Top" Width="22" FontSize="13" Click="btnMinusMinutes1_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnMinusHours1" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="186,597,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnMinusHours1_Click" Height="24" Background="#CCC8AA"/>
+        <Label Content="Ring Selection" HorizontalAlignment="Left" Margin="72,478,0,0" VerticalAlignment="Top" Width="124" FontSize="14" FontWeight="Bold" Height="33"/>
+        <Label Content="First Ring" HorizontalAlignment="Left" Margin="28,507,0,0" VerticalAlignment="Top" Height="29" Width="60"/>
+        <Label Content="Second Ring" HorizontalAlignment="Left" Margin="98,507,0,0" VerticalAlignment="Top" Height="29" Width="74"/>
+        <Label Content="Third Ring" HorizontalAlignment="Left" Margin="178,509,0,0" VerticalAlignment="Top" Height="29" Width="66"/>
+        <Button x:Name="btnPlusSeconds2" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="274,544,0,0" VerticalAlignment="Top" Width="22" FontSize="13" Click="btnPlusSeconds2_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnPlusMinutes2" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="344,544,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnPlusMinutes2_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnPlusHours2" Content="+" IsEnabled="False" HorizontalAlignment="Left" Margin="414,544,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnPlusHours2_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnMinusSeconds2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="274,600,0,0" VerticalAlignment="Top" Width="22" FontSize="13" Click="btnMinusSeconds2_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnMinusMinutes2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="344,600,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnMinusMinutes2_Click" Height="24" Background="#CCC8AA"/>
+        <Button x:Name="btnMinusHours2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="414,600,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnMinusHours2_Click" Height="24" Background="#CCC8AA"/>
+        <Label Content="Letter Arangement" HorizontalAlignment="Left" Margin="300,478,0,0" VerticalAlignment="Top" Width="136" FontSize="14" FontWeight="Bold" Height="34"/>
+        <Label Content="First Ring" HorizontalAlignment="Left" Margin="260,510,0,0" VerticalAlignment="Top" Height="28" Width="60"/>
+        <Label Content="Second Ring" HorizontalAlignment="Left" Margin="322,510,0,0" VerticalAlignment="Top" Height="28" Width="82"/>
+        <Label Content="Third Ring" HorizontalAlignment="Left" Margin="404,510,0,0" VerticalAlignment="Top" Height="28" Width="64"/>
+        <TextBox x:Name="tbxInput" HorizontalAlignment="Left" Height="184" Margin="30,293,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="472" KeyDown="tbxInput_KeyDown" PreviewKeyDown="tbxInput_PreviewKeyDown" ToolTip="This is where the inputed message displays" FontSize="14" Background="WhiteSmoke"/>
+        <Button x:Name="btnSet" Content="Lock Settings" IsEnabled="False" HorizontalAlignment="Left" Margin="211,636,0,0" VerticalAlignment="Top" Width="162" Click="btnSet_Click" Height="28" Background="#CCC8AA" ToolTip="Save the settings"/>
+        <Label x:Name="lblInput" Content="Input:" HorizontalAlignment="Left" Margin="26,265,0,0" VerticalAlignment="Top" Width="52" FontSize="15" Height="30"/>
+        <Label x:Name="lblOutput" Content="Encrypted:" HorizontalAlignment="Left" Margin="25,51,0,0" VerticalAlignment="Top" Width="92" FontSize="15"/>
 
-        <Label x:Name="lblSelectionSecondsCounter1" Content="00" HorizontalAlignment="Left" Margin="796,506,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Seconds Rotor"/>
-        <Label x:Name="lblSelectionMinutesCounter1" Content="00" HorizontalAlignment="Left" Margin="867,506,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Minutes Rotor"/>
-        <Label x:Name="lblSelectionHoursCounter1" Content="00" HorizontalAlignment="Left" Margin="937,506,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Hours Rotor"/>
-        <Label x:Name="lblSelectionSecondsCounter2" Content="00" HorizontalAlignment="Left" Margin="1043,504,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Seconds Rotor Offset"/>
-        <Label x:Name="lblSelectionMinutesCounter2" Content="00" HorizontalAlignment="Left" Margin="1113,504,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Minutes Rotor Offset"/>
-        <Label x:Name="lblSelectionHoursCounter2" Content="00" HorizontalAlignment="Left" Margin="1183,504,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Hours Rotor Offset"/>
-        <TextBox x:Name="tbxOutput" HorizontalAlignment="Left" Height="136" Margin="777,237,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="426" VerticalScrollBarVisibility="Auto" ToolTip="This is where the encrypted message displays" FontSize="14"/>
-        <Button x:Name="btnReset" Content="New Setup" HorizontalAlignment="Left" Margin="1045,600,0,0" VerticalAlignment="Top" Width="160" Height="29" Click="btnReset_Click" Background="#FF79CEF5" ToolTip="Reset Enigma Machine Settings" IsEnabled="False"/>
-        <CheckBox x:Name="cbxReflector" Content="Reflector" HorizontalAlignment="Left" Margin="795,571,0,0" VerticalAlignment="Top" Checked="cbxReflector_Checked" Width="130" Height="29" FontSize="14" FontStyle="Italic" IsEnabled="false" ToolTip="If checked, the encrypted/output message is more secure" Unchecked="cbxReflector_Unchecked">
+        <Label x:Name="lblSelectionSecondsCounter1" Content="00" HorizontalAlignment="Left" Margin="44,572,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Seconds Rotor"/>
+        <Label x:Name="lblSelectionMinutesCounter1" Content="00" HorizontalAlignment="Left" Margin="116,572,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Minutes Rotor"/>
+        <Label x:Name="lblSelectionHoursCounter1" Content="00" HorizontalAlignment="Left" Margin="186,572,0,0" VerticalAlignment="Top" Height="25" Width="22" FontSize="11" ToolTip="Hours Rotor"/>
+        <Label x:Name="lblSelectionSecondsCounter2" Content="00" HorizontalAlignment="Left" Margin="274,574,0,0" VerticalAlignment="Top" Height="26" Width="22" FontSize="11" ToolTip="Seconds Rotor Offset"/>
+        <Label x:Name="lblSelectionMinutesCounter2" Content="00" HorizontalAlignment="Left" Margin="344,574,0,0" VerticalAlignment="Top" Height="26" Width="22" FontSize="11" ToolTip="Minutes Rotor Offset"/>
+        <Label x:Name="lblSelectionHoursCounter2" Content="00" HorizontalAlignment="Left" Margin="414,572,0,0" VerticalAlignment="Top" Height="26" Width="22" FontSize="11" ToolTip="Hours Rotor Offset"/>
+        <TextBox x:Name="tbxOutput" HorizontalAlignment="Left" Height="187" Margin="27,77,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="472" VerticalScrollBarVisibility="Auto" ToolTip="This is where the encrypted message displays" FontSize="14" Background="#7d7e7c" Foreground="WhiteSmoke"/>
+        <Button x:Name="btnReset" Content="New Setup" HorizontalAlignment="Left" Margin="1157,28,0,0" VerticalAlignment="Top" Width="141" Height="30" Click="btnReset_Click" Background="#749BC2" ToolTip="Reset Enigma Machine Settings" IsEnabled="False"/>
+        <CheckBox x:Name="cbxReflector" Content="Reflector" HorizontalAlignment="Left" Margin="55,640,0,0" VerticalAlignment="Top" Checked="cbxReflector_Checked" Width="98" Height="30" FontSize="10" FontStyle="Italic" IsEnabled="false" ToolTip="If checked, the encrypted/output message is more secure" Unchecked="cbxReflector_Unchecked">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
             </CheckBox.LayoutTransform>
@@ -83,7 +83,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="1"
     FontSize="15"
-    Margin="117,549,0,0"          
+    Margin="607,476,0,0"          
     Height="45"
     Width="40"
     BorderBrush="Black"
@@ -96,7 +96,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="2"
     FontSize="15"
-    Margin="162,549,0,0"          
+    Margin="652,476,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -109,7 +109,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="3"
     FontSize="15"
-    Margin="207,549,0,0"          
+    Margin="697,476,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -122,7 +122,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="4"
     FontSize="15"
-    Margin="251,549,0,0"          
+    Margin="741,476,0,0"          
     Height="45"
     Width="40"
     BorderBrush="Black"
@@ -135,7 +135,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="5"
     FontSize="15"
-    Margin="296,549,0,0"          
+    Margin="786,476,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -148,7 +148,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="6"
     FontSize="15"
-    Margin="340,549,0,0"          
+    Margin="830,476,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -161,7 +161,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="7"
     FontSize="15"
-    Margin="385,549,0,0"          
+    Margin="875,476,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -174,7 +174,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="8"
     FontSize="15"
-    Margin="430,549,0,0"          
+    Margin="920,476,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -187,7 +187,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="9"
     FontSize="15"
-    Margin="473,549,0,0"          
+    Margin="963,476,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -200,7 +200,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="0"
     FontSize="15"
-    Margin="518,549,0,0"          
+    Margin="1008,476,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -213,7 +213,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="Enter"
     FontSize="15"
-    Margin="638,650,0,0"          
+    Margin="1128,577,0,0"          
     Height="45"
     Width="99"
     BorderBrush="Black"
@@ -226,7 +226,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="="
     FontSize="15"
-    Margin="606,549,0,0"          
+    Margin="1096,476,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -239,7 +239,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="q"
     FontSize="15"
-    Margin="164,599,0,0"          
+    Margin="654,526,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -252,9 +252,9 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="Tab"
     FontSize="15"
-    Margin="74,599,0,0"          
+    Margin="548,526,0,0"          
     Height="45"
-    Width="85"
+    Width="101"
     BorderBrush="Black"
     BorderThickness="1" 
     HorizontalContentAlignment="Center"
@@ -265,9 +265,9 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="Shift"
     FontSize="15"
-    Margin="74,700,0,0"          
+    Margin="548,627,0,0"          
     Height="45"
-    Width="79"
+    Width="95"
     BorderBrush="Black"
     BorderThickness="1" 
     HorizontalContentAlignment="Center"
@@ -278,7 +278,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="w"
     FontSize="15"
-    Margin="209,599,0,0"          
+    Margin="699,526,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -291,7 +291,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="e"
     FontSize="15"
-    Margin="253,599,0,0"          
+    Margin="743,526,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -304,7 +304,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="r"
     FontSize="15"
-    Margin="298,599,0,0"          
+    Margin="788,526,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -317,7 +317,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="t"
     FontSize="15"
-    Margin="341,599,0,0"          
+    Margin="831,526,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -330,7 +330,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="y"
     FontSize="15"
-    Margin="387,599,0,0"          
+    Margin="877,526,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -343,7 +343,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="u"
     FontSize="15"
-    Margin="430,599,0,0"          
+    Margin="920,526,0,0"          
     Height="45"
     Width="40"
     BorderBrush="Black"
@@ -356,7 +356,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="i"
     FontSize="15"
-    Margin="475,599,0,0"          
+    Margin="965,526,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -369,7 +369,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="o"
     FontSize="15"
-    Margin="520,599,0,0"          
+    Margin="1010,526,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -382,7 +382,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="p"
     FontSize="15"
-    Margin="564,599,0,0"          
+    Margin="1054,526,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -395,7 +395,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="["
     FontSize="15"
-    Margin="610,599,0,0"          
+    Margin="1100,526,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -408,7 +408,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="]"
     FontSize="15"
-    Margin="653,599,0,0"          
+    Margin="1143,526,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -421,7 +421,7 @@ VerticalAlignment="Bottom">
     VerticalAlignment="Top"
     Content="\"
     FontSize="15"
-    Margin="697,600,0,0"          
+    Margin="1187,527,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -434,7 +434,7 @@ HorizontalAlignment="Left"
 VerticalAlignment="Top"
 Content="Back"
 FontSize="15"
-Margin="652,549,0,0"          
+Margin="1142,476,0,0"          
 Height="45"
 Width="85"
 BorderBrush="Black"
@@ -447,7 +447,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="a"
     FontSize="15"
-    Margin="150,650,0,0"          
+    Margin="642,577,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -459,7 +459,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="s"
     FontSize="15"
-    Margin="195,650,0,0"          
+    Margin="685,577,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -471,7 +471,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="d"
     FontSize="15"
-    Margin="239,650,0,0"          
+    Margin="729,577,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -483,7 +483,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="f"
     FontSize="15"
-    Margin="284,650,0,0"          
+    Margin="774,577,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -495,7 +495,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="g"
     FontSize="15"
-    Margin="327,650,0,0"          
+    Margin="817,577,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -507,7 +507,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="h"
     FontSize="15"
-    Margin="372,650,0,0"          
+    Margin="862,577,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -519,7 +519,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="j"
     FontSize="15"
-    Margin="416,650,0,0"          
+    Margin="906,577,0,0"          
     Height="45"
     Width="40"
     BorderBrush="Black"
@@ -531,7 +531,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="k"
     FontSize="15"
-    Margin="461,650,0,0"          
+    Margin="951,577,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -543,7 +543,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="l"
     FontSize="15"
-    Margin="506,650,0,0"          
+    Margin="996,577,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -555,7 +555,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content=";"
     FontSize="15"
-    Margin="550,650,0,0"          
+    Margin="1040,577,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -567,7 +567,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="'"
     FontSize="15"
-    Margin="596,650,0,0"          
+    Margin="1086,577,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -579,9 +579,9 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="Shift lock"
     FontSize="15"
-    Margin="74,650,0,0"          
+    Margin="548,577,0,0"          
     Height="45"
-    Width="71"
+    Width="87"
     BorderBrush="Black"
     BorderThickness="1" 
     HorizontalContentAlignment="Center"
@@ -591,7 +591,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="z"
     FontSize="15"
-    Margin="158,700,0,0"          
+    Margin="648,627,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -603,7 +603,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="x"
     FontSize="15"
-    Margin="202,700,0,0"          
+    Margin="692,627,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -615,7 +615,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="c"
     FontSize="15"
-    Margin="246,700,0,0"          
+    Margin="736,627,0,0"          
     Height="45"
     Width="40"
     BorderBrush="Black"
@@ -627,7 +627,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="v"
     FontSize="15"
-    Margin="291,700,0,0"          
+    Margin="781,627,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -639,7 +639,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="b"
     FontSize="15"
-    Margin="335,700,0,0"          
+    Margin="825,627,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -651,7 +651,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="n"
     FontSize="15"
-    Margin="522,700,0,0"          
+    Margin="1012,627,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -663,7 +663,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="m"
     FontSize="15"
-    Margin="567,700,0,0"          
+    Margin="1057,627,0,0"          
     Height="45"
     Width="40"
     BorderBrush="Black"
@@ -675,7 +675,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content=","
     FontSize="15"
-    Margin="610,700,0,0"          
+    Margin="1100,627,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -687,7 +687,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="."
     FontSize="15"
-    Margin="655,700,0,0"          
+    Margin="1145,627,0,0"          
     Height="45"
     Width="39"
     BorderBrush="Black"
@@ -699,7 +699,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="/"
     FontSize="15"
-    Margin="699,700,0,0"          
+    Margin="1189,627,0,0"          
     Height="45"
     Width="38"
     BorderBrush="Black"
@@ -711,7 +711,7 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="Spacebar"
     FontSize="15"
-    Margin="378,700,0,0"          
+    Margin="868,627,0,0"          
     Height="45"
     Width="139"
     BorderBrush="Black"
@@ -723,198 +723,198 @@ VerticalContentAlignment="Center"/>
     VerticalAlignment="Top"
     Content="-"
     FontSize="15"
-    Margin="563,549,0,0"          
+    Margin="1053,476,0,0"          
     Height="45"
     Width="40"
     BorderBrush="Black"
     BorderThickness="1" 
     HorizontalContentAlignment="Center"
     VerticalContentAlignment="Center"/>
-        <Ellipse x:Name="eclipse1" HorizontalAlignment="Left" Height="45" Margin="72,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="52" Fill="Transparent"/>
-        <Ellipse x:Name="eclipse2" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse3" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse4" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse5" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse6" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="338,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse7" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="392,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse8" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="444,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse9" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="496,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse10" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="547,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse11" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="74,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse12" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse13" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse14" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse15" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse16" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="338,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse17" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="392,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse18" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="444,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse19" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="496,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse20" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="547,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse21" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="74,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse22" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse23" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse24" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse25" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse26" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="338,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse27" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="392,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse28" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="444,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse29" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="496,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse30" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="547,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse31" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="74,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse32" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,346,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse33" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,346,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse34" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse35" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse36" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="338,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse37" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="392,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse38" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="444,346,0,0" Stroke="Black" VerticalAlignment="Top" Width="48"/>
-        <Ellipse x:Name="eclipse39" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="496,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse40" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="74,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse41" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse42" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse43" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse44" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse45" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="338,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse46" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="392,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse47" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="444,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse48" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="496,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse49" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="74,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse50" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse51" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse52" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse53" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse54" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="467,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse55" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="520,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse56" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="74,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse57" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse58" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse59" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse60" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse61" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="467,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse62" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="520,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse63" Fill="Transparent" HorizontalAlignment="Left" Height="91" Margin="332,445,0,0" Stroke="Black" VerticalAlignment="Top" Width="136"/>
-        <Ellipse x:Name="eclipse82" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="392,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse83" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="444,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse84" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="496,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse85" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="232,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse86" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="284,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse87" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="338,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse88" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="74,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse89" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="127,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse90" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="179,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse91" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="548,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse64" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="600,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Ellipse x:Name="eclipse65" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="655,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse66" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="602,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Ellipse x:Name="eclipse67" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="655,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse68" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="600,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Ellipse x:Name="eclipse69" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="655,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse70" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="655,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse71" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="600,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Ellipse x:Name="eclipse72" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="655,299,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse73" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="655,346,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse74" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="548,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse75" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="548,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse76" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="570,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Ellipse x:Name="eclipse77" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="624,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse78" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="676,444,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse79" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="570,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Ellipse x:Name="eclipse80" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="624,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse81" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="676,492,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
-        <Ellipse x:Name="eclipse92" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="600,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Ellipse x:Name="eclipse93" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="600,346,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Label x:Name="lbl1" Content="!" HorizontalAlignment="Left" Margin="92,159,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl2" Content="@" HorizontalAlignment="Left" Margin="139,159,0,0" VerticalAlignment="Top" Width="28" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl3" Content="#" HorizontalAlignment="Left" Margin="195,161,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl4" Content="$" HorizontalAlignment="Left" Margin="246,161,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl5" Content="%" HorizontalAlignment="Left" Margin="300,161,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl6" Content="^" HorizontalAlignment="Left" Margin="354,162,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl7" Content="&amp;" HorizontalAlignment="Left" Margin="406,161,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl8" Content="*" HorizontalAlignment="Left" Margin="461,162,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl9" Content="(" HorizontalAlignment="Left" Margin="512,161,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl10" Content=")" HorizontalAlignment="Left" Margin="567,159,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl20" Content="P" HorizontalAlignment="Left" Margin="562,258,0,0" VerticalAlignment="Top" Width="26" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl19" Content="O" HorizontalAlignment="Left" Margin="510,259,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl18" Content="I" HorizontalAlignment="Left" Margin="461,259,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl17" Content="U" HorizontalAlignment="Left" Margin="406,258,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl16" Content="Y" HorizontalAlignment="Left" Margin="355,258,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl15" Content="T" HorizontalAlignment="Left" Margin="300,259,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl14" Content="R" HorizontalAlignment="Left" Margin="248,259,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl13" Content="E" HorizontalAlignment="Left" Margin="195,259,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl12" Content="W" HorizontalAlignment="Left" Margin="140,259,0,0" VerticalAlignment="Top" Width="26" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl11" Content="Q" HorizontalAlignment="Left" Margin="88,258,0,0" VerticalAlignment="Top" Width="26" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl30" Content="p" HorizontalAlignment="Left" Margin="562,306,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl29" Content="o" HorizontalAlignment="Left" Margin="512,305,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl28" Content="i" HorizontalAlignment="Left" Margin="463,307,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl27" Content="u" HorizontalAlignment="Left" Margin="409,308,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl26" Content="y" HorizontalAlignment="Left" Margin="355,307,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl25" Content="t" HorizontalAlignment="Left" Margin="302,307,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl24" Content="r" HorizontalAlignment="Left" Margin="249,307,0,0" VerticalAlignment="Top" Width="23" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl23" Content="e" HorizontalAlignment="Left" Margin="196,307,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl22" Content="w" HorizontalAlignment="Left" Margin="143,306,0,0" VerticalAlignment="Top" Width="21" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl21" Content="q" HorizontalAlignment="Left" Margin="90,306,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl39" Content="L" HorizontalAlignment="Left" Margin="512,355,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl38" Content="K" HorizontalAlignment="Left" Margin="459,355,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl37" Content="J" HorizontalAlignment="Left" Margin="409,356,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl36" Content="H" HorizontalAlignment="Left" Margin="353,355,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl35" Content="G" HorizontalAlignment="Left" Margin="300,354,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl34" Content="F" HorizontalAlignment="Left" Margin="249,354,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl33" Content="D" HorizontalAlignment="Left" Margin="193,353,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl32" Content="S" HorizontalAlignment="Left" Margin="143,351,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl31" Content="A" HorizontalAlignment="Left" Margin="88,352,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl48" Content="l" HorizontalAlignment="Left" Margin="512,404,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl47" Content="k" HorizontalAlignment="Left" Margin="459,404,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl46" Content="j" HorizontalAlignment="Left" Margin="411,403,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl45" Content="h" HorizontalAlignment="Left" Margin="354,403,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl44" Content="g" HorizontalAlignment="Left" Margin="300,403,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl43" Content="f" HorizontalAlignment="Left" Margin="250,404,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl42" Content="d" HorizontalAlignment="Left" Margin="195,403,0,0" VerticalAlignment="Top" Width="19" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl41" Content="s" HorizontalAlignment="Left" Margin="145,403,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl40" Content="a" HorizontalAlignment="Left" Margin="90,404,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl55" Content="M" HorizontalAlignment="Left" Margin="533,451,0,0" VerticalAlignment="Top" Width="28" FontSize="14" Foreground="Black" Height="30"/>
-        <Label x:Name="lbl54" Content="N" HorizontalAlignment="Left" Margin="482,451,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="30"/>
-        <Label x:Name="lbl53" Content="B" HorizontalAlignment="Left" Margin="300,452,0,0" VerticalAlignment="Top" Width="19" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl52" Content="V" HorizontalAlignment="Left" Margin="248,452,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl51" Content="C" HorizontalAlignment="Left" Margin="194,452,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl50" Content="X" HorizontalAlignment="Left" Margin="143,452,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl49" Content="Z" HorizontalAlignment="Left" Margin="90,452,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl62" Content="m" HorizontalAlignment="Left" Margin="535,500,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl61" Content="n" HorizontalAlignment="Left" Margin="483,498,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl60" Content="b" HorizontalAlignment="Left" Margin="300,500,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl59" Content="v" HorizontalAlignment="Left" Margin="248,500,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl58" Content="c" HorizontalAlignment="Left" Margin="192,496,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl57" Content="x" HorizontalAlignment="Left" Margin="143,496,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl56" Content="z" HorizontalAlignment="Left" Margin="92,496,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl63" Content="SPACE" HorizontalAlignment="Left" Margin="367,473,0,0" VerticalAlignment="Top" Width="70" FontSize="18" Foreground="Black" Height="34"/>
-        <Label x:Name="lbl64" Content="-" HorizontalAlignment="Left" Margin="621,209,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl65" Content="=" HorizontalAlignment="Left" Margin="671,209,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl66" Content="_" HorizontalAlignment="Left" Margin="622,161,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl67" Content="+" HorizontalAlignment="Left" Margin="670,161,0,0" VerticalAlignment="Top" Width="19" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl70" Content="\" HorizontalAlignment="Left" Margin="671,404,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl69" Content="]" HorizontalAlignment="Left" Margin="674,259,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl68" Content="[" HorizontalAlignment="Left" Margin="621,258,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl73" Content="|" HorizontalAlignment="Left" Margin="673,354,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl72" Content="}" HorizontalAlignment="Left" Margin="674,307,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl71" Content="{}{" HorizontalAlignment="Left" Margin="618,307,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl75" Content=":" HorizontalAlignment="Left" Margin="566,355,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl74" Content=";" HorizontalAlignment="Left" Margin="567,404,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl78" Content="/" HorizontalAlignment="Left" Margin="694,452,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl77" Content="." HorizontalAlignment="Left" Margin="643,452,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl76" Content="," HorizontalAlignment="Left" Margin="588,454,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl81" Content="?" HorizontalAlignment="Left" Margin="692,500,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl80" Content="&gt;" HorizontalAlignment="Left" Margin="639,500,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl79" Content="&lt;" HorizontalAlignment="Left" Margin="586,500,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl84" Content="9" HorizontalAlignment="Left" Margin="512,211,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="26"/>
-        <Label x:Name="lbl83" Content="8" HorizontalAlignment="Left" Margin="461,211,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="26"/>
-        <Label x:Name="lbl82" Content="7" HorizontalAlignment="Left" Margin="409,211,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="26"/>
-        <Label x:Name="lbl87" Content="6" HorizontalAlignment="Left" Margin="355,210,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl86" Content="5" HorizontalAlignment="Left" Margin="300,210,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl85" Content="4" HorizontalAlignment="Left" Margin="248,210,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl90" Content="3" HorizontalAlignment="Left" Margin="196,210,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl89" Content="2" HorizontalAlignment="Left" Margin="144,210,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="29"/>
-        <Label x:Name="lbl88" Content="1" HorizontalAlignment="Left" Margin="90,210,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
-        <Label x:Name="lbl91" Content="0" HorizontalAlignment="Left" Margin="564,210,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
-        <Label x:Name="lbl92" Content="'" HorizontalAlignment="Left" Margin="619,410,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="20"/>
-        <Label x:Name="lbl93" Content='"' HorizontalAlignment="Left" Margin="618,360,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="20"/>
+        <Ellipse x:Name="eclipse1" HorizontalAlignment="Left" Height="45" Margin="574,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="52" Fill="Transparent"/>
+        <Ellipse x:Name="eclipse2" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse3" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse4" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse5" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse6" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="840,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse7" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="894,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse8" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="946,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse9" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="998,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse10" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1049,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse11" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="576,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse12" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse13" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse14" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse15" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse16" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="840,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse17" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="894,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse18" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="946,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse19" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="998,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse20" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1049,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse21" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="576,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse22" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse23" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse24" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse25" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse26" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="840,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse27" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="894,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse28" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="946,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse29" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="998,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse30" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1049,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse31" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="576,272,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse32" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse33" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse34" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,272,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse35" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,272,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse36" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="840,272,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse37" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="894,272,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse38" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="946,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="48"/>
+        <Ellipse x:Name="eclipse39" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="998,272,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse40" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="576,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse41" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse42" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse43" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse44" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse45" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="840,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse46" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="894,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse47" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="946,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse48" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="998,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse49" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="576,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse50" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse51" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse52" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse53" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse54" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="969,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse55" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1022,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse56" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="576,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse57" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse58" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse59" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse60" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse61" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="969,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse62" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1022,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse63" Fill="Transparent" HorizontalAlignment="Left" Height="91" Margin="834,370,0,0" Stroke="Black" VerticalAlignment="Top" Width="136"/>
+        <Ellipse x:Name="eclipse82" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="894,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse83" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="946,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse84" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="998,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse85" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="734,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse86" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="786,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse87" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="840,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse88" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="576,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse89" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="629,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse90" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="681,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse91" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1050,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse64" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1102,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Ellipse x:Name="eclipse65" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1157,126,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse66" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1104,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Ellipse x:Name="eclipse67" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1157,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse68" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1102,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Ellipse x:Name="eclipse69" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1157,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse70" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1157,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse71" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1102,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Ellipse x:Name="eclipse72" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1157,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse73" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1157,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse74" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1050,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse75" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1050,272,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse76" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1072,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Ellipse x:Name="eclipse77" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1126,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse78" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1178,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse79" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1072,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Ellipse x:Name="eclipse80" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1126,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse81" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1178,417,0,0" Stroke="Black" VerticalAlignment="Top" Width="49"/>
+        <Ellipse x:Name="eclipse92" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1102,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Ellipse x:Name="eclipse93" Fill="Transparent" HorizontalAlignment="Left" Height="45" Margin="1102,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="lbl1" Content="!" HorizontalAlignment="Left" Margin="594,84,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl2" Content="@" HorizontalAlignment="Left" Margin="641,84,0,0" VerticalAlignment="Top" Width="28" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl3" Content="#" HorizontalAlignment="Left" Margin="697,86,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl4" Content="$" HorizontalAlignment="Left" Margin="748,86,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl5" Content="%" HorizontalAlignment="Left" Margin="802,86,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl6" Content="^" HorizontalAlignment="Left" Margin="856,87,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl7" Content="&amp;" HorizontalAlignment="Left" Margin="908,86,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl8" Content="*" HorizontalAlignment="Left" Margin="963,87,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl9" Content="(" HorizontalAlignment="Left" Margin="1014,86,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl10" Content=")" HorizontalAlignment="Left" Margin="1069,84,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl20" Content="P" HorizontalAlignment="Left" Margin="1064,183,0,0" VerticalAlignment="Top" Width="26" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl19" Content="O" HorizontalAlignment="Left" Margin="1012,184,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl18" Content="I" HorizontalAlignment="Left" Margin="963,184,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl17" Content="U" HorizontalAlignment="Left" Margin="908,183,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl16" Content="Y" HorizontalAlignment="Left" Margin="857,183,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl15" Content="T" HorizontalAlignment="Left" Margin="802,184,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl14" Content="R" HorizontalAlignment="Left" Margin="750,184,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl13" Content="E" HorizontalAlignment="Left" Margin="697,184,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl12" Content="W" HorizontalAlignment="Left" Margin="642,184,0,0" VerticalAlignment="Top" Width="26" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl11" Content="Q" HorizontalAlignment="Left" Margin="590,183,0,0" VerticalAlignment="Top" Width="26" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl30" Content="p" HorizontalAlignment="Left" Margin="1064,231,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl29" Content="o" HorizontalAlignment="Left" Margin="1014,230,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl28" Content="i" HorizontalAlignment="Left" Margin="965,232,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl27" Content="u" HorizontalAlignment="Left" Margin="911,233,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl26" Content="y" HorizontalAlignment="Left" Margin="857,232,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl25" Content="t" HorizontalAlignment="Left" Margin="804,232,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl24" Content="r" HorizontalAlignment="Left" Margin="751,232,0,0" VerticalAlignment="Top" Width="23" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl23" Content="e" HorizontalAlignment="Left" Margin="698,232,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl22" Content="w" HorizontalAlignment="Left" Margin="645,231,0,0" VerticalAlignment="Top" Width="21" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl21" Content="q" HorizontalAlignment="Left" Margin="592,231,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl39" Content="L" HorizontalAlignment="Left" Margin="1014,280,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl38" Content="K" HorizontalAlignment="Left" Margin="961,280,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl37" Content="J" HorizontalAlignment="Left" Margin="911,281,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl36" Content="H" HorizontalAlignment="Left" Margin="855,280,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl35" Content="G" HorizontalAlignment="Left" Margin="802,279,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl34" Content="F" HorizontalAlignment="Left" Margin="751,279,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl33" Content="D" HorizontalAlignment="Left" Margin="695,278,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl32" Content="S" HorizontalAlignment="Left" Margin="645,276,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl31" Content="A" HorizontalAlignment="Left" Margin="590,277,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl48" Content="l" HorizontalAlignment="Left" Margin="1014,328,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl47" Content="k" HorizontalAlignment="Left" Margin="961,328,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl46" Content="j" HorizontalAlignment="Left" Margin="913,328,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl45" Content="h" HorizontalAlignment="Left" Margin="856,328,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl44" Content="g" HorizontalAlignment="Left" Margin="802,328,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl43" Content="f" HorizontalAlignment="Left" Margin="752,328,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl42" Content="d" HorizontalAlignment="Left" Margin="697,328,0,0" VerticalAlignment="Top" Width="19" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl41" Content="s" HorizontalAlignment="Left" Margin="647,328,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl40" Content="a" HorizontalAlignment="Left" Margin="592,328,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl55" Content="M" HorizontalAlignment="Left" Margin="1035,375,0,0" VerticalAlignment="Top" Width="28" FontSize="14" Foreground="Black" Height="30"/>
+        <Label x:Name="lbl54" Content="N" HorizontalAlignment="Left" Margin="984,375,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="30"/>
+        <Label x:Name="lbl53" Content="B" HorizontalAlignment="Left" Margin="802,377,0,0" VerticalAlignment="Top" Width="19" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl52" Content="V" HorizontalAlignment="Left" Margin="750,377,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl51" Content="C" HorizontalAlignment="Left" Margin="696,377,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl50" Content="X" HorizontalAlignment="Left" Margin="645,377,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl49" Content="Z" HorizontalAlignment="Left" Margin="592,376,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl62" Content="m" HorizontalAlignment="Left" Margin="1037,425,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl61" Content="n" HorizontalAlignment="Left" Margin="985,423,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl60" Content="b" HorizontalAlignment="Left" Margin="802,425,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl59" Content="v" HorizontalAlignment="Left" Margin="750,425,0,0" VerticalAlignment="Top" Width="20" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl58" Content="c" HorizontalAlignment="Left" Margin="694,421,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl57" Content="x" HorizontalAlignment="Left" Margin="645,421,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl56" Content="z" HorizontalAlignment="Left" Margin="594,421,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl63" Content="SPACE" HorizontalAlignment="Left" Margin="869,398,0,0" VerticalAlignment="Top" Width="70" FontSize="18" Foreground="Black" Height="34"/>
+        <Label x:Name="lbl64" Content="-" HorizontalAlignment="Left" Margin="1123,134,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl65" Content="=" HorizontalAlignment="Left" Margin="1173,134,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl66" Content="_" HorizontalAlignment="Left" Margin="1124,86,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl67" Content="+" HorizontalAlignment="Left" Margin="1172,86,0,0" VerticalAlignment="Top" Width="19" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl70" Content="\" HorizontalAlignment="Left" Margin="1173,329,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl69" Content="]" HorizontalAlignment="Left" Margin="1176,184,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl68" Content="[" HorizontalAlignment="Left" Margin="1123,183,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl73" Content="|" HorizontalAlignment="Left" Margin="1175,279,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl72" Content="}" HorizontalAlignment="Left" Margin="1176,232,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl71" Content="{}{" HorizontalAlignment="Left" Margin="1120,232,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl75" Content=":" HorizontalAlignment="Left" Margin="1068,280,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl74" Content=";" HorizontalAlignment="Left" Margin="1069,328,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl78" Content="/" HorizontalAlignment="Left" Margin="1196,377,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl77" Content="." HorizontalAlignment="Left" Margin="1145,376,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl76" Content="," HorizontalAlignment="Left" Margin="1090,379,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl81" Content="?" HorizontalAlignment="Left" Margin="1194,425,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl80" Content="&gt;" HorizontalAlignment="Left" Margin="1141,425,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl79" Content="&lt;" HorizontalAlignment="Left" Margin="1088,425,0,0" VerticalAlignment="Top" Width="22" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl84" Content="9" HorizontalAlignment="Left" Margin="1014,136,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="26"/>
+        <Label x:Name="lbl83" Content="8" HorizontalAlignment="Left" Margin="963,136,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="26"/>
+        <Label x:Name="lbl82" Content="7" HorizontalAlignment="Left" Margin="911,136,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="26"/>
+        <Label x:Name="lbl87" Content="6" HorizontalAlignment="Left" Margin="857,135,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl86" Content="5" HorizontalAlignment="Left" Margin="802,135,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl85" Content="4" HorizontalAlignment="Left" Margin="750,135,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl90" Content="3" HorizontalAlignment="Left" Margin="698,135,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl89" Content="2" HorizontalAlignment="Left" Margin="646,135,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="29"/>
+        <Label x:Name="lbl88" Content="1" HorizontalAlignment="Left" Margin="592,135,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="28"/>
+        <Label x:Name="lbl91" Content="0" HorizontalAlignment="Left" Margin="1066,135,0,0" VerticalAlignment="Top" Width="17" FontSize="14" Foreground="Black" Height="27"/>
+        <Label x:Name="lbl92" Content="'" HorizontalAlignment="Left" Margin="1121,334,0,0" VerticalAlignment="Top" Width="16" FontSize="14" Foreground="Black" Height="20"/>
+        <Label x:Name="lbl93" Content='"' HorizontalAlignment="Left" Margin="1120,285,0,0" VerticalAlignment="Top" Width="18" FontSize="14" Foreground="Black" Height="20"/>
     </Grid>
 </Window>

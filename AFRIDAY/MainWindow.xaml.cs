@@ -295,14 +295,12 @@ namespace AFRIDAY
                 { Key.OemPeriod, dot },
                 { Key.OemQuestion, slash },
 
-                //Special Char
-                { Key.Space, spacebar },
+                //Special Char                
                 { Key.LeftShift, shift },
                 { Key.RightShift, shift },
                 { Key.CapsLock, shiftlock },
                 { Key.Enter, _return },               
                 { Key.Tab, tab },
-                { Key.Back, back }
             };
 
 
@@ -458,85 +456,6 @@ namespace AFRIDAY
         }
 
 
-        //private void MenuOpen_Click(object sender, RoutedEventArgs e)
-        //{
-        //    OpenFileDialog ofd = new OpenFileDialog();
-        //    ofd.Filter = "Comma Separated Values (*.csv;)|*.csv;";
-        //    if (ofd.ShowDialog() == true)
-        //    {
-        //        FilePathTextBlock.Text = ofd.FileName;
-
-        //        if (FilePathTextBlock.Text.Length > 0)
-        //        {
-        //            EnigmaClass.ringLines.Clear();
-        //            Array.Clear(EnigmaClass.groupedRings, 0, EnigmaClass.groupedRings.Length);
-        //            EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
-        //            EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };
-        //            updateDisplayCount();
-        //            EnigmaClass.ReadFiles(FilePathTextBlock.Text);
-        //            EnigmaClass.ringContentSeparator();
-        //            ringC.Text = "Ring Count : " + EnigmaClass.ringCount();
-        //            rCount.Text = "Character Count per Ring : " + EnigmaClass.ringContentCount();
-        //            MessageBox.Show("Rings File has been Read and Formatted successfully! Please Proceed with the setup.\nFeel free to select another csv file that contains rings if you want.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
-        //            btnPlusSeconds1.IsEnabled = true;
-        //            btnPlusMinutes1.IsEnabled = true;
-        //            btnPlusHours1.IsEnabled = true;
-        //            btnMinusSeconds1.IsEnabled = true;
-        //            btnMinusMinutes1.IsEnabled = true;
-        //            btnMinusHours1.IsEnabled = true;
-        //            MenuOpen.IsEnabled = true;
-        //            cbxReflector.IsEnabled = true;
-        //            btnReset.IsEnabled = true;                
-        //        }
-        //    }
-        //}
-
-        //private void MenuOpen_Click(object sender, RoutedEventArgs e)
-        //{
-        //    OpenFileDialog ofd = new OpenFileDialog();
-        //    ofd.Filter = "CSV Files (*.csv)|*.csv";
-
-        //    if (ofd.ShowDialog() == true)
-        //    {
-        //        FilePathTextBlock.Text = ofd.FileName;
-
-        //        if (FilePathTextBlock.Text.Length > 0)
-        //        {
-        //            EnigmaClass.ringLines.Clear();
-        //            Array.Clear(EnigmaClass.groupedRings, 0, EnigmaClass.groupedRings.Length);
-        //            EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
-        //            EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };
-        //            updateDisplayCount();
-
-        //            // Use the ReadCSVFile method from CSVFileReader to read the selected CSV file
-        //            string selectedFilePath = FilePathTextBlock.Text;
-        //            List<string> csvLines = CSVFileReader.ReadCSVFile(selectedFilePath);
-
-        //            if (csvLines.Count > 0)
-        //            {
-        //                EnigmaClass.ringContentSeparator();
-        //                ringC.Text = "Ring Count: " + EnigmaClass.ringCount();
-        //                rCount.Text = "Character Count per Ring: " + EnigmaClass.ringContentCount();
-        //                MessageBox.Show("Rings File has been Read and Formatted successfully! Please Proceed with the setup.\nFeel free to select another CSV file that contains rings if you want.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
-        //                btnPlusSeconds1.IsEnabled = true;
-        //                btnPlusMinutes1.IsEnabled = true;
-        //                btnPlusHours1.IsEnabled = true;
-        //                btnMinusSeconds1.IsEnabled = true;
-        //                btnMinusMinutes1.IsEnabled = true;
-        //                btnMinusHours1.IsEnabled = true;
-        //                MenuOpen.IsEnabled = true;
-        //                cbxReflector.IsEnabled = true;
-        //                btnReset.IsEnabled = true;
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show("Failed to read the CSV file.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-        //            }
-        //        }
-        //    }
-        //}
-
-
 
 
         private void btnPlusSeconds1_Click(object sender, RoutedEventArgs e)
@@ -630,9 +549,9 @@ namespace AFRIDAY
         private void btnSet_Click(object sender, RoutedEventArgs e)
         {
             btnSetIsClicked = true;
-            if (MessageBox.Show("Are you sure you want to LOCK THE SELECTION?", "Enigma", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to LOCK the Settings?", "Enigma", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Enigma will hide the setup.\nPlease TAKE NOTE of the setup of your Enigma Machine", "Enigma", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Settings and selecting CSV File will be unavailable.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Warning);
                 EnigmaClass.offsetRotors();
                 MessageBox.Show("Enigma is now activated!", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -897,6 +816,11 @@ namespace AFRIDAY
                             tbxOutput.Text += EnigmaClass.encrypted('"');
                             keyLightUp();
                             break;
+                        case Key.Space:
+                            tbxInput.Text += ' ';
+                            tbxOutput.Text += EnigmaClass.encrypted(' ');
+                            keyLightUp();
+                            break;
                     }
                     //updateDisplayCount();
                 }
@@ -1157,6 +1081,11 @@ namespace AFRIDAY
                             tbxOutput.Text += EnigmaClass.encrypted('\'');
                             keyLightUp();
                             break;
+                        case Key.Space:
+                            tbxInput.Text += ' ';
+                            tbxOutput.Text += EnigmaClass.encrypted(' ');
+                            keyLightUp();
+                            break;
                             //case Key.OemQuotes:
                             //    tbxInput.Text += "'";
                             //    tbxOutput.Text += EnigmaClass.encrypted('"');
@@ -1232,8 +1161,8 @@ namespace AFRIDAY
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Enigma is going to RESET setup", "Enigma", MessageBoxButton.OK, MessageBoxImage.Warning);
-            if (MessageBox.Show("Are you sure you want to RESET enigma setup?", "Enigma", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            MessageBox.Show("Enigma is going to RESET", "Enigma", MessageBoxButton.OK, MessageBoxImage.Warning);
+            if (MessageBox.Show("Are you sure you want to RESET enigma setup and select another CSV File?", "Enigma", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 //tbxRingFilePath.Text = "";
                 //lblRingCount.Content = "Ring Count: ";
@@ -1272,7 +1201,7 @@ namespace AFRIDAY
                     key[x].Fill = originalColor;
                     keyLabels[x].Foreground = labelOriginalColor;
                 }
-                MessageBox.Show("The Enigma setup is RESET.\nSelect another setup that you want.\nFeel free to select another csv file that contains rings if you want, then setup again your Enigma.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("The Enigma setup is RESET.\nSelect another CSV File.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -1465,7 +1394,11 @@ namespace AFRIDAY
                 {
                     targetLabel.Background = outputColor;
                 }
+                if(e.Key == Key.Back)
+            {
+                back.Background = Brushes.Gray;
             }
+        }
 
             private void Window_KeyUp(object sender, KeyEventArgs e)
             {
@@ -1536,7 +1469,11 @@ namespace AFRIDAY
                     targetLabel.Background = Brushes.Transparent;
                 }
 
+            if (e.Key == Key.Back)
+            {
+                back.Background = Brushes.Transparent;
             }
+        }
 
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
