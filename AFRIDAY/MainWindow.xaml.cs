@@ -300,9 +300,9 @@ namespace AFRIDAY
                 { Key.LeftShift, shift },
                 { Key.RightShift, shift },
                 { Key.CapsLock, shiftlock },
-                { Key.Enter, _return },
-                { Key.Back, back },
-                { Key.Tab, tab }
+                { Key.Enter, _return },               
+                { Key.Tab, tab },
+                { Key.Back, back }
             };
 
 
@@ -399,36 +399,97 @@ namespace AFRIDAY
 
         private void MenuOpen_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Comma Separated Values (*.csv;)|*.csv;";
-            if (ofd.ShowDialog() == true)
-            {
-                FilePathTextBlock.Text = ofd.FileName;
+            bool fileReadSuccessfully = false;
 
-                if (FilePathTextBlock.Text.Length > 0)
+            do
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Comma Separated Values (*.csv;)|*.csv;";
+                if (ofd.ShowDialog() == true)
                 {
-                    EnigmaClass.ringLines.Clear();
-                    Array.Clear(EnigmaClass.groupedRings, 0, EnigmaClass.groupedRings.Length);
-                    EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
-                    EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };
-                    updateDisplayCount();
-                    EnigmaClass.ReadFiles(FilePathTextBlock.Text);
-                    EnigmaClass.ringContentSeparator();
-                    ringC.Text = "Ring Count : " + EnigmaClass.ringCount();
-                    rCount.Text = "Character Count per Ring : " + EnigmaClass.ringContentCount();
-                    MessageBox.Show("Rings File has been Read and Formatted successfully! Please Proceed with the setup.\nFeel free to select another csv file that contains rings if you want.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
-                    btnPlusSeconds1.IsEnabled = true;
-                    btnPlusMinutes1.IsEnabled = true;
-                    btnPlusHours1.IsEnabled = true;
-                    btnMinusSeconds1.IsEnabled = true;
-                    btnMinusMinutes1.IsEnabled = true;
-                    btnMinusHours1.IsEnabled = true;
-                    MenuOpen.IsEnabled = true;
-                    cbxReflector.IsEnabled = true;
-                    btnReset.IsEnabled = true;                
+                    FilePathTextBlock.Text = ofd.FileName;
+
+                    if (FilePathTextBlock.Text.Length > 0)
+                    {
+                        EnigmaClass.ringLines.Clear();
+                        Array.Clear(EnigmaClass.groupedRings, 0, EnigmaClass.groupedRings.Length);
+                        EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
+                        EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };
+
+                        fileReadSuccessfully = EnigmaClass.ReadFiles(FilePathTextBlock.Text);
+
+                        if (fileReadSuccessfully)
+                        {
+                            updateDisplayCount();
+                            EnigmaClass.ringContentSeparator();
+                            ringC.Text = "Ring Count : " + EnigmaClass.ringCount();
+                            rCount.Text = "Character Count per Ring : " + EnigmaClass.ringContentCount();
+                            MessageBox.Show("Rings File has been Read and Formatted successfully! Please Proceed with the setup.\nFeel free to select another csv file that contains rings if you want.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                            ToggleControls(true);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select a valid CSV file.", "Invalid File", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                    }
+                }
+                else
+                {
+                    // User cancelled the file dialog
+                    return;
                 }
             }
+            while (!fileReadSuccessfully);
         }
+
+
+        private void ToggleControls(bool isEnabled)
+        {
+            btnPlusSeconds1.IsEnabled = isEnabled;
+            btnPlusMinutes1.IsEnabled = isEnabled;
+            btnPlusHours1.IsEnabled = isEnabled;
+            btnMinusSeconds1.IsEnabled = isEnabled;
+            btnMinusMinutes1.IsEnabled = isEnabled;
+            btnMinusHours1.IsEnabled = isEnabled;
+            MenuOpen.IsEnabled = isEnabled;
+            cbxReflector.IsEnabled = isEnabled;
+            btnReset.IsEnabled = isEnabled;
+        }
+
+
+        //private void MenuOpen_Click(object sender, RoutedEventArgs e)
+        //{
+        //    OpenFileDialog ofd = new OpenFileDialog();
+        //    ofd.Filter = "Comma Separated Values (*.csv;)|*.csv;";
+        //    if (ofd.ShowDialog() == true)
+        //    {
+        //        FilePathTextBlock.Text = ofd.FileName;
+
+        //        if (FilePathTextBlock.Text.Length > 0)
+        //        {
+        //            EnigmaClass.ringLines.Clear();
+        //            Array.Clear(EnigmaClass.groupedRings, 0, EnigmaClass.groupedRings.Length);
+        //            EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
+        //            EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };
+        //            updateDisplayCount();
+        //            EnigmaClass.ReadFiles(FilePathTextBlock.Text);
+        //            EnigmaClass.ringContentSeparator();
+        //            ringC.Text = "Ring Count : " + EnigmaClass.ringCount();
+        //            rCount.Text = "Character Count per Ring : " + EnigmaClass.ringContentCount();
+        //            MessageBox.Show("Rings File has been Read and Formatted successfully! Please Proceed with the setup.\nFeel free to select another csv file that contains rings if you want.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
+        //            btnPlusSeconds1.IsEnabled = true;
+        //            btnPlusMinutes1.IsEnabled = true;
+        //            btnPlusHours1.IsEnabled = true;
+        //            btnMinusSeconds1.IsEnabled = true;
+        //            btnMinusMinutes1.IsEnabled = true;
+        //            btnMinusHours1.IsEnabled = true;
+        //            MenuOpen.IsEnabled = true;
+        //            cbxReflector.IsEnabled = true;
+        //            btnReset.IsEnabled = true;                
+        //        }
+        //    }
+        //}
 
         //private void MenuOpen_Click(object sender, RoutedEventArgs e)
         //{
@@ -833,6 +894,8 @@ namespace AFRIDAY
                             break;
                         case Key.OemQuotes:
                             tbxInput.Text += '"';
+                            tbxOutput.Text += EnigmaClass.encrypted('"');
+                            keyLightUp();
                             break;
                     }
                     //updateDisplayCount();
@@ -1091,6 +1154,7 @@ namespace AFRIDAY
                             break;
                         case Key.OemQuotes:
                             tbxInput.Text += '\'';
+                            tbxOutput.Text += EnigmaClass.encrypted('\'');
                             keyLightUp();
                             break;
                             //case Key.OemQuotes:
@@ -1129,11 +1193,11 @@ namespace AFRIDAY
                         keyLightUp();
                         break;
 
-                    //case Key.Tab:
-                    //    tbxInput.Text += "\t";
-                    //    tbxOutput.Text += EnigmaClass.encrypted('\t');
-                    //    keyLightUp();
-                    //    break;
+                    case Key.Tab:
+                        tbxInput.Text += "\t";                       
+                        break;
+                        
+
                     case Key.Back:
                         if (tbxInput.Text.Length > 0 && tbxOutput.Text.Length > 0)
                         {
@@ -1165,6 +1229,7 @@ namespace AFRIDAY
             }
         }
 
+
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Enigma is going to RESET setup", "Enigma", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -1174,26 +1239,24 @@ namespace AFRIDAY
                 //lblRingCount.Content = "Ring Count: ";
                 //lblRingContentCount.Content = "Ring Count Content: ";
                 DisableEventHandlers();
+                //EnigmaClass.ClearRingLines();
                 tbxInput.Text = "";
                 tbxOutput.Text = "";
                 cbxReflector.IsChecked = false;
-                //EnigmaClass.ringLines.Clear();
                 EnigmaClass.textboxInput.Clear();
                 EnigmaClass.textboxOutput.Clear();
-                //Array.Clear(EnigmaClass.groupedRings, 0, EnigmaClass.groupedRings.Length);
-                //Array.Clear(EnigmaClass.rotatingRings, 0, EnigmaClass.rotatingRings.Length);
                 EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
-                EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };
+                EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };               
                 updateDisplayCount();
                 EnigmaClass.offsetRotors();
                 btnSetIsClicked = false;
                 DisableEventHandlers();
-                btnPlusSeconds1.IsEnabled = true;
-                btnPlusMinutes1.IsEnabled = true;
-                btnPlusHours1.IsEnabled = true;
-                btnMinusSeconds1.IsEnabled = true;
-                btnMinusMinutes1.IsEnabled = true;
-                btnMinusHours1.IsEnabled = true;
+                btnPlusSeconds1.IsEnabled = false;
+                btnPlusMinutes1.IsEnabled = false;
+                btnPlusHours1.IsEnabled = false;
+                btnMinusSeconds1.IsEnabled = false;
+                btnMinusMinutes1.IsEnabled = false;
+                btnMinusHours1.IsEnabled = false;
                 btnPlusSeconds2.IsEnabled = false;
                 btnPlusMinutes2.IsEnabled = false;
                 btnPlusHours2.IsEnabled = false;

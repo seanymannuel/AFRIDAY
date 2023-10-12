@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AFRIDAY
 {
@@ -18,9 +19,10 @@ namespace AFRIDAY
         public static int[] ringSettings = new int[3] { 0, 0, 0 };
         public static bool checkboxIsChecked = false;
 
-
-        public static void ReadFiles(string path) //Reads csv file
+        public static bool ReadFiles(string path)
         {
+            ringLines.Clear(); // Assuming ringLines is a static field in EnigmaClass
+
             try
             {
                 using (StreamReader sr = new StreamReader(path))
@@ -28,18 +30,102 @@ namespace AFRIDAY
                     sr.ReadLine();
                     sr.ReadLine();
 
-                    string line = "";                
+                    string line = "";
                     while ((line = sr.ReadLine()) != null)
                     {
+                        string[] values = line.Split(',');
+
+                        foreach (string value in values)
+                        {
+                            if (!double.TryParse(value, out _))
+                            {
+                                throw new InvalidDataException("The CSV file contains a non-numeric value.");
+                            }
+                        }
                         ringLines.Add(line);
                     }
                 }
             }
+            catch (InvalidDataException e)
+            {
+                MessageBox.Show(e.Message, "CSV Format Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
             catch (Exception e)
             {
-                ringLines = new List<string>();
+                MessageBox.Show("An error occurred while reading the CSV file: " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
+
+            return true;
         }
+
+
+        //public static void ClearRingLines()
+        //{
+        //    ringLines.Clear();
+        //}
+        //public static void ReadFiles(string path)
+        //{
+        //    try
+        //    {
+        //        using (StreamReader sr = new StreamReader(path))
+        //        {
+        //            sr.ReadLine();
+        //            sr.ReadLine();
+
+        //            string line = "";
+        //            while ((line = sr.ReadLine()) != null)
+        //            {
+        //                string[] values = line.Split(',');
+
+        //                foreach (string value in values)
+        //                {
+        //                    if (!double.TryParse(value, out _)) // trying to parse each value to double
+        //                    {
+        //                        throw new InvalidDataException("The CSV file contains a non-numeric value.");
+        //                    }
+        //                }
+
+        //                ringLines.Add(line);
+        //            }
+        //        }
+        //    }
+        //    catch (InvalidDataException e)
+        //    {
+        //        // Handling specific CSV format errors
+        //        MessageBox.Show(e.Message, "CSV Format Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //        ringLines = new List<string>();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        // Handling other generic errors
+        //        MessageBox.Show("An error occurred while reading the CSV file: " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //        ringLines = new List<string>();
+        //    }
+        //}
+
+        //public static void ReadFiles(string path) //Reads csv file
+        //{
+        //    try
+        //    {
+        //        using (StreamReader sr = new StreamReader(path))
+        //        {
+        //            sr.ReadLine();
+        //            sr.ReadLine();
+
+        //            string line = "";                
+        //            while ((line = sr.ReadLine()) != null)
+        //            {
+        //                ringLines.Add(line);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        ringLines = new List<string>();
+        //    }
+        //}
 
         //public static class CSVFileReader
         //{
@@ -68,9 +154,16 @@ namespace AFRIDAY
         //    }
         //}
 
-
-        public static void ringContentSeparator() //Sort the contents of the csv file.
+        public static void ringContentSeparator() //Sort the contents of the csv file.     
         {
+            if (ringLines.Count == 0)
+            {
+                Console.WriteLine("No data to process in ringLines."); // Log to console or use other logging
+                // Optionally, show a message to the user, if appropriate in your application context
+                return;
+            }
+
+
             int xCount = ringLines.Count;
             int yCount = ringLines[0].Split(',').Length;
             groupedRings = new char[yCount, xCount];
@@ -79,6 +172,14 @@ namespace AFRIDAY
             for (int x = 0; x < xCount; x++)
             {
                 string[] ringElements = ringLines[x].Split(',');
+
+                if (ringElements.Length < yCount)
+                {
+                    // Handle cases where a line has fewer columns than expected
+                    // Possibly show an error message, log it, or throw a custom exception.
+                    throw new InvalidDataException($"Line {x + 1} has fewer columns ({ringElements.Length}) than expected ({yCount}).");
+                }
+
                 for (int y = 0; y < yCount; y++)
                 {
                     ungroupedRings[x, y] = stringToChar(ringElements[y]);
@@ -93,6 +194,32 @@ namespace AFRIDAY
                 }
             }
         }
+
+
+        //public static void ringContentSeparator() //Sort the contents of the csv file.
+        //{
+        //    int xCount = ringLines.Count;
+        //    int yCount = ringLines[0].Split(',').Length;
+        //    groupedRings = new char[yCount, xCount];
+        //    char[,] ungroupedRings = new char[xCount, yCount];
+
+        //    for (int x = 0; x < xCount; x++)
+        //    {
+        //        string[] ringElements = ringLines[x].Split(',');
+        //        for (int y = 0; y < yCount; y++)
+        //        {
+        //            ungroupedRings[x, y] = stringToChar(ringElements[y]);
+        //        }
+        //    }
+
+        //    for (int y = 0; y < yCount; y++)
+        //    {
+        //        for (int x = 0; x < xCount; x++)
+        //        {
+        //            groupedRings[y, x] = ungroupedRings[x, y];
+        //        }
+        //    }
+        //}
 
         private static char stringToChar(string a) //Convert string to char
         {

@@ -56,9 +56,9 @@ VerticalAlignment="Bottom">
         <Button x:Name="btnMinusMinutes2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="1112,531,0,0" VerticalAlignment="Top" Width="24" FontSize="13" Click="btnMinusMinutes2_Click" Height="24" Background="#FF9EFFE9"/>
         <Button x:Name="btnMinusHours2" Content="-" IsEnabled="False" HorizontalAlignment="Left" Margin="1183,531,0,0" VerticalAlignment="Top" Width="23" FontSize="13" Click="btnMinusHours2_Click" Height="24" Background="#FF9EFFE9"/>
         <Label Content="Letter Arangement" HorizontalAlignment="Left" Margin="1068,410,0,0" VerticalAlignment="Top" Width="137" FontSize="14" FontWeight="Bold" Height="33"/>
-        <Label Content="Seconds" HorizontalAlignment="Left" Margin="1024,439,0,0" VerticalAlignment="Top" Height="29" Width="60"/>
-        <Label Content="Minutes" HorizontalAlignment="Left" Margin="1093,439,0,0" VerticalAlignment="Top" Height="29" Width="60"/>
-        <Label Content="Hours" HorizontalAlignment="Left" Margin="1168,439,0,0" VerticalAlignment="Top" Height="29" Width="47"/>
+        <Label Content="First Ring" HorizontalAlignment="Left" Margin="1024,439,0,0" VerticalAlignment="Top" Height="29" Width="60"/>
+        <Label Content="Second Ring" HorizontalAlignment="Left" Margin="1093,439,0,0" VerticalAlignment="Top" Height="29" Width="60"/>
+        <Label Content="Third Ring" HorizontalAlignment="Left" Margin="1168,439,0,0" VerticalAlignment="Top" Height="29" Width="47"/>
         <TextBox x:Name="tbxInput" HorizontalAlignment="Left" Height="138" Margin="777,69,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="426" KeyDown="tbxInput_KeyDown" PreviewKeyDown="tbxInput_PreviewKeyDown" ToolTip="This is where the inputed message displays" FontSize="14"/>
         <Button x:Name="btnSet" Content="Set" IsEnabled="False" HorizontalAlignment="Left" Margin="1045,566,0,0" VerticalAlignment="Top" Width="161" Click="btnSet_Click" Height="29" Background="#FF9EFFE9" ToolTip="Save the settings"/>
         <Label x:Name="lblInput" Content="Input:" HorizontalAlignment="Left" Margin="777,43,0,0" VerticalAlignment="Top" Width="52"/>
