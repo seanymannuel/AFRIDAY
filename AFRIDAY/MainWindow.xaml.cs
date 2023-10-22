@@ -22,17 +22,17 @@ namespace AFRIDAY
 {
     public partial class MainWindow : Window
     {
-        public static bool btnSetIsClicked = false;
+        bool btnSetIsClicked = false;
+        bool shiftKeyPressed = false;
+        bool capsLockEnabled = false;
+        bool isEventHandlersEnabled = false;
+        Label[] keyLabels = new Label[93];
+        Ellipse[] key = new Ellipse[93];
+        readonly Dictionary<Key, Label> labelMappings;
         SolidColorBrush outputColor = new SolidColorBrush();
         SolidColorBrush originalColor = new SolidColorBrush();
         SolidColorBrush labelOutputColor = new SolidColorBrush();
         SolidColorBrush labelOriginalColor = new SolidColorBrush();
-        Label[] keyLabels = new Label[93];
-        Ellipse[] key = new Ellipse[93];
-        private readonly Dictionary<Key, Label> labelMappings;
-        private bool shiftKeyPressed = false;
-        private bool capsLockEnabled = false;
-        private bool isEventHandlersEnabled = false;
         //string defaultMessage = "Your Message will appear here"; // Default message text
         //string eMessage = "Encrypted Message will appear here"; // Default message text
 
@@ -229,9 +229,7 @@ namespace AFRIDAY
             keyLabels[90] = lbl91;
             keyLabels[91] = lbl92;
             keyLabels[92] = lbl93;
-            //if (initialState)
-            //    tbxInput.Text = defaultMessage; // If it's the initial state, display the default message
-            //    tbxOutput.Text = eMessage;
+            
 
             outputColor.Color = Color.FromRgb(204, 200, 170); //Color when clicked
             originalColor.Color = Color.FromRgb(125, 124, 124); //BGcolor of the eclipse
@@ -306,53 +304,6 @@ namespace AFRIDAY
 
         }
 
-        private void EnableEventHandlers()
-        {
-            isEventHandlersEnabled = true;
-        }
-
-        private void DisableEventHandlers()
-        {
-            isEventHandlersEnabled = false;
-        }
-
-        void updateDisplayCount()
-        {
-            lblSelectionSecondsCounter1.Content = EnigmaClass.countDisplayFormatter(EnigmaClass.ringSelection[0]);
-            lblSelectionMinutesCounter1.Content = EnigmaClass.countDisplayFormatter(EnigmaClass.ringSelection[1]);
-            lblSelectionHoursCounter1.Content = EnigmaClass.countDisplayFormatter(EnigmaClass.ringSelection[2]);
-
-            lblSelectionSecondsCounter2.Content = EnigmaClass.countDisplayFormatter(EnigmaClass.ringSettings[0]);
-            lblSelectionMinutesCounter2.Content = EnigmaClass.countDisplayFormatter(EnigmaClass.ringSettings[1]);
-            lblSelectionHoursCounter2.Content = EnigmaClass.countDisplayFormatter(EnigmaClass.ringSettings[2]);
-        }
-
-        void ringSelectorChecker()
-        {
-            if (EnigmaClass.ringSelection[0] == EnigmaClass.ringSelection[1] || EnigmaClass.ringSelection[1] == EnigmaClass.ringSelection[2] || EnigmaClass.ringSelection[0] == EnigmaClass.ringSelection[2])
-            {
-                btnPlusSeconds2.IsEnabled = false;
-                btnPlusMinutes2.IsEnabled = false;
-                btnPlusHours2.IsEnabled = false;
-                btnMinusSeconds2.IsEnabled = false;
-                btnMinusMinutes2.IsEnabled = false;
-                btnMinusHours2.IsEnabled = false;
-                btnSet.IsEnabled = false;
-            }
-            else
-            {
-                btnPlusSeconds2.IsEnabled = true;
-                btnPlusMinutes2.IsEnabled = true;
-                btnPlusHours2.IsEnabled = true;
-                btnMinusSeconds2.IsEnabled = true;
-                btnMinusMinutes2.IsEnabled = true;
-                btnMinusHours2.IsEnabled = true;
-                btnSet.IsEnabled = true;
-            }
-        }
-
-
-
         void keyLightUp()
         {
             for (int x = 0; x < keyLabels.Length; x++)
@@ -395,6 +346,51 @@ namespace AFRIDAY
         //    newWindow.Show();
         //}
 
+        //private void MenuOpen_Click(object sender, RoutedEventArgs e)
+        //{
+        //    OpenFileDialog ofd = new OpenFileDialog();
+        //    ofd.Filter = "Comma Separated Values (*.csv;)|*.csv;";
+
+        //    if (ofd.ShowDialog() == true)
+        //    {
+        //        FilePathTextBlock.Text = ofd.FileName;
+
+        //        if (FilePathTextBlock.Text.Length > 0)
+        //        {
+        //            Rotor.LinesInRing.Clear();
+        //            Array.Clear(Rotor.groupedRings, 0, Rotor.groupedRings.Length);
+        //            Rotor.ringSelection = new int[3] { 0, 0, 0 };
+        //            Rotor.ringSettings = new int[3] { 0, 0, 0 };
+        //            updateDisplayCount();
+
+        //            string selectedFilePath = FilePathTextBlock.Text;
+        //            List<string> csvLines = Rotor.ReadFiles(selectedFilePath);
+
+        //            if (csvLines.Count > 0)
+        //            {
+        //                Rotor.ringContentSeparator();
+        //                ringC.Text = "Ring Count: " + Rotor.ringCount();
+        //                rCount.Text = "Character Count per Ring: " + Rotor.ringContentCount();
+        //                MessageBox.Show("Rings File has been Read and Formatted successfully! Please Proceed with the setup.\nFeel free to select another csv file that contains rings if you want.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
+        //                btnPlusSeconds1.IsEnabled = true;
+        //                btnPlusMinutes1.IsEnabled = true;
+        //                btnPlusHours1.IsEnabled = true;
+        //                btnMinusSeconds1.IsEnabled = true;
+        //                btnMinusMinutes1.IsEnabled = true;
+        //                btnMinusHours1.IsEnabled = true;
+        //                MenuOpen.IsEnabled = true;
+        //                cbxReflector.IsEnabled = true;
+        //                btnReset.IsEnabled = true;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Failed to read the CSV file.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //            }
+        //        }
+        //    }
+        //}
+
+
         private void MenuOpen_Click(object sender, RoutedEventArgs e)
         {
             bool fileReadSuccessfully = false;
@@ -409,19 +405,19 @@ namespace AFRIDAY
 
                     if (FilePathTextBlock.Text.Length > 0)
                     {
-                        EnigmaClass.ringLines.Clear();
-                        Array.Clear(EnigmaClass.groupedRings, 0, EnigmaClass.groupedRings.Length);
-                        EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
-                        EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };
+                        Rotor.LinesInRing.Clear();
+                        Array.Clear(Rotor.groupedRings, 0, Rotor.groupedRings.Length);
+                        Rotor.ringSelection = new int[3] { 0, 0, 0 };
+                        Rotor.ringSettings = new int[3] { 0, 0, 0 };
 
-                        fileReadSuccessfully = EnigmaClass.ReadFiles(FilePathTextBlock.Text);
+                        fileReadSuccessfully = Rotor.ReadFiles(FilePathTextBlock.Text);
 
                         if (fileReadSuccessfully)
                         {
                             updateDisplayCount();
-                            EnigmaClass.ringContentSeparator();
-                            ringC.Text = "Ring Count : " + EnigmaClass.ringCount();
-                            rCount.Text = "Character Count per Ring : " + EnigmaClass.ringContentCount();
+                            Rotor.ringContentSeparator();
+                            ringC.Text = "Ring Count : " + Rotor.ringCount();
+                            rCount.Text = "Character Count per Ring : " + Rotor.ringContentCount();
                             MessageBox.Show("Rings File has been Read and Formatted successfully! Please Proceed with the setup.\nFeel free to select another csv file that contains rings if you want.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
 
                             ToggleControls(true);
@@ -456,94 +452,140 @@ namespace AFRIDAY
         }
 
 
+        private void EnableEventHandlers()
+        {
+            isEventHandlersEnabled = true;
+        }
+
+        private void DisableEventHandlers()
+        {
+            isEventHandlersEnabled = false;
+        }
+
+        void updateDisplayCount()
+        {
+            lblSelectionSecondsCounter1.Content = Rotor.countDisplayFormatter(Rotor.ringSelection[0]);
+            lblSelectionMinutesCounter1.Content = Rotor.countDisplayFormatter(Rotor.ringSelection[1]);
+            lblSelectionHoursCounter1.Content = Rotor.countDisplayFormatter(Rotor.ringSelection[2]);
+
+            lblSelectionSecondsCounter2.Content = Rotor.countDisplayFormatter(Rotor.ringSettings[0]);
+            lblSelectionMinutesCounter2.Content = Rotor.countDisplayFormatter(Rotor.ringSettings[1]);
+            lblSelectionHoursCounter2.Content = Rotor.countDisplayFormatter(Rotor.ringSettings[2]);
+        }
+
+        void ringSelectorChecker()
+        {
+            if (Rotor.ringSelection[0] == Rotor.ringSelection[1] || Rotor.ringSelection[1] == Rotor.ringSelection[2] || Rotor.ringSelection[0] == Rotor.ringSelection[2])
+            {
+                btnPlusSeconds2.IsEnabled = false;
+                btnPlusMinutes2.IsEnabled = false;
+                btnPlusHours2.IsEnabled = false;
+                btnMinusSeconds2.IsEnabled = false;
+                btnMinusMinutes2.IsEnabled = false;
+                btnMinusHours2.IsEnabled = false;
+                btnSet.IsEnabled = false;
+            }
+            else
+            {
+                btnPlusSeconds2.IsEnabled = true;
+                btnPlusMinutes2.IsEnabled = true;
+                btnPlusHours2.IsEnabled = true;
+                btnMinusSeconds2.IsEnabled = true;
+                btnMinusMinutes2.IsEnabled = true;
+                btnMinusHours2.IsEnabled = true;
+                btnSet.IsEnabled = true;
+            }
+        }
+
+
 
 
         private void btnPlusSeconds1_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSelectionCounter(0, '+');
+            Rotor.ringSelectionCounter(0, '+');
             updateDisplayCount();
             ringSelectorChecker();
         }
 
         private void btnPlusMinutes1_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSelectionCounter(1, '+');
+            Rotor.ringSelectionCounter(1, '+');
             updateDisplayCount();
             ringSelectorChecker();
         }
 
         private void btnPlusHours1_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSelectionCounter(2, '+');
+            Rotor.ringSelectionCounter(2, '+');
             updateDisplayCount();
             ringSelectorChecker();
         }
 
         private void btnMinusSeconds1_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSelectionCounter(0, '-');
+            Rotor.ringSelectionCounter(0, '-');
             updateDisplayCount();
             ringSelectorChecker();
         }
 
         private void btnMinusMinutes1_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSelectionCounter(1, '-');
+            Rotor.ringSelectionCounter(1, '-');
             updateDisplayCount();
             ringSelectorChecker();
         }
 
         private void btnMinusHours1_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSelectionCounter(2, '-');
+            Rotor.ringSelectionCounter(2, '-');
             updateDisplayCount();
             ringSelectorChecker();
         }
 
         private void btnPlusSeconds2_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSettingsCounter(0, '+');
+            Rotor.ringSettingsCounter(0, '+');
             updateDisplayCount();
         }
 
         private void btnPlusMinutes2_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSettingsCounter(1, '+');
+            Rotor.ringSettingsCounter(1, '+');
             updateDisplayCount();
         }
 
         private void btnPlusHours2_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSettingsCounter(2, '+');
+            Rotor.ringSettingsCounter(2, '+');
             updateDisplayCount();
         }
 
         private void btnMinusSeconds2_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSettingsCounter(0, '-');
+            Rotor.ringSettingsCounter(0, '-');
             updateDisplayCount();
         }
 
         private void btnMinusMinutes2_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSettingsCounter(1, '-');
+            Rotor.ringSettingsCounter(1, '-');
             updateDisplayCount();
         }
 
         private void btnMinusHours2_Click(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.ringSettingsCounter(2, '-');
+            Rotor.ringSettingsCounter(2, '-');
             updateDisplayCount();
         }
 
         private void cbxReflector_Checked(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.checkboxIsChecked = true;
+            Rotor.checkboxIsChecked = true;
         }
 
         private void cbxReflector_Unchecked(object sender, RoutedEventArgs e)
         {
-            EnigmaClass.checkboxIsChecked = false;
+            Rotor.checkboxIsChecked = false;
         }
 
         private void btnSet_Click(object sender, RoutedEventArgs e)
@@ -552,7 +594,7 @@ namespace AFRIDAY
             if (MessageBox.Show("Are you sure you want to LOCK the Settings?", "Enigma", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 MessageBox.Show("Settings and selecting CSV File will be unavailable.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Warning);
-                EnigmaClass.offsetRotors();
+                Rotor.offsetRotors();
                 MessageBox.Show("Enigma is now activated!", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 btnPlusSeconds1.IsEnabled = false;
@@ -588,237 +630,237 @@ namespace AFRIDAY
                     {
                         case Key.A:
                             tbxInput.Text += 'A';
-                            tbxOutput.Text += EnigmaClass.encrypted('A');
+                            tbxOutput.Text += Rotor.encrypted('A');
                             keyLightUp();
                             break;
                         case Key.B:
                             tbxInput.Text += 'B';
-                            tbxOutput.Text += EnigmaClass.encrypted('B');
+                            tbxOutput.Text += Rotor.encrypted('B');
                             keyLightUp();
                             break;
                         case Key.C:
                             tbxInput.Text += 'C';
-                            tbxOutput.Text += EnigmaClass.encrypted('C');
+                            tbxOutput.Text += Rotor.encrypted('C');
                             keyLightUp();
                             break;
                         case Key.D:
                             tbxInput.Text += 'D';
-                            tbxOutput.Text += EnigmaClass.encrypted('D');
+                            tbxOutput.Text += Rotor.encrypted('D');
                             keyLightUp();
                             break;
                         case Key.E:
                             tbxInput.Text += 'E';
-                            tbxOutput.Text += EnigmaClass.encrypted('E');
+                            tbxOutput.Text += Rotor.encrypted('E');
                             keyLightUp();
                             break;
                         case Key.F:
                             tbxInput.Text += 'F';
-                            tbxOutput.Text += EnigmaClass.encrypted('F');
+                            tbxOutput.Text += Rotor.encrypted('F');
                             keyLightUp();
                             break;
                         case Key.G:
                             tbxInput.Text += 'G';
-                            tbxOutput.Text += EnigmaClass.encrypted('G');
+                            tbxOutput.Text += Rotor.encrypted('G');
                             keyLightUp();
                             break;
                         case Key.H:
                             tbxInput.Text += 'H';
-                            tbxOutput.Text += EnigmaClass.encrypted('H');
+                            tbxOutput.Text += Rotor.encrypted('H');
                             keyLightUp();
                             break;
                         case Key.I:
                             tbxInput.Text += 'I';
-                            tbxOutput.Text += EnigmaClass.encrypted('I');
+                            tbxOutput.Text += Rotor.encrypted('I');
                             keyLightUp();
                             break;
                         case Key.J:
                             tbxInput.Text += 'J';
-                            tbxOutput.Text += EnigmaClass.encrypted('J');
+                            tbxOutput.Text += Rotor.encrypted('J');
                             keyLightUp();
                             break;
                         case Key.K:
                             tbxInput.Text += 'K';
-                            tbxOutput.Text += EnigmaClass.encrypted('K');
+                            tbxOutput.Text += Rotor.encrypted('K');
                             keyLightUp();
                             break;
                         case Key.L:
                             tbxInput.Text += 'L';
-                            tbxOutput.Text += EnigmaClass.encrypted('L');
+                            tbxOutput.Text += Rotor.encrypted('L');
                             keyLightUp();
                             break;
                         case Key.M:
                             tbxInput.Text += 'M';
-                            tbxOutput.Text += EnigmaClass.encrypted('M');
+                            tbxOutput.Text += Rotor.encrypted('M');
                             keyLightUp();
                             break;
                         case Key.N:
                             tbxInput.Text += 'N';
-                            tbxOutput.Text += EnigmaClass.encrypted('N');
+                            tbxOutput.Text += Rotor.encrypted('N');
                             keyLightUp();
                             break;
                         case Key.O:
                             tbxInput.Text += 'O';
-                            tbxOutput.Text += EnigmaClass.encrypted('O');
+                            tbxOutput.Text += Rotor.encrypted('O');
                             keyLightUp();
                             break;
                         case Key.P:
                             tbxInput.Text += 'P';
-                            tbxOutput.Text += EnigmaClass.encrypted('P');
+                            tbxOutput.Text += Rotor.encrypted('P');
                             keyLightUp();
                             break;
                         case Key.Q:
                             tbxInput.Text += 'Q';
-                            tbxOutput.Text += EnigmaClass.encrypted('Q');
+                            tbxOutput.Text += Rotor.encrypted('Q');
                             keyLightUp();
                             break;
                         case Key.R:
                             tbxInput.Text += 'R';
-                            tbxOutput.Text += EnigmaClass.encrypted('R');
+                            tbxOutput.Text += Rotor.encrypted('R');
                             keyLightUp();
                             break;
                         case Key.S:
                             tbxInput.Text += 'S';
-                            tbxOutput.Text += EnigmaClass.encrypted('S');
+                            tbxOutput.Text += Rotor.encrypted('S');
                             keyLightUp();
                             break;
                         case Key.T:
                             tbxInput.Text += 'T';
-                            tbxOutput.Text += EnigmaClass.encrypted('T');
+                            tbxOutput.Text += Rotor.encrypted('T');
                             keyLightUp();
                             break;
                         case Key.U:
                             tbxInput.Text += 'U';
-                            tbxOutput.Text += EnigmaClass.encrypted('U');
+                            tbxOutput.Text += Rotor.encrypted('U');
                             keyLightUp();
                             break;
                         case Key.V:
                             tbxInput.Text += 'V';
-                            tbxOutput.Text += EnigmaClass.encrypted('V');
+                            tbxOutput.Text += Rotor.encrypted('V');
                             keyLightUp();
                             break;
                         case Key.W:
                             tbxInput.Text += 'W';
-                            tbxOutput.Text += EnigmaClass.encrypted('W');
+                            tbxOutput.Text += Rotor.encrypted('W');
                             keyLightUp();
                             break;
                         case Key.X:
                             tbxInput.Text += 'X';
-                            tbxOutput.Text += EnigmaClass.encrypted('X');
+                            tbxOutput.Text += Rotor.encrypted('X');
                             keyLightUp();
                             break;
                         case Key.Y:
                             tbxInput.Text += 'Y';
-                            tbxOutput.Text += EnigmaClass.encrypted('Y');
+                            tbxOutput.Text += Rotor.encrypted('Y');
                             keyLightUp();
                             break;
                         case Key.Z:
                             tbxInput.Text += 'Z';
-                            tbxOutput.Text += EnigmaClass.encrypted('Z');
+                            tbxOutput.Text += Rotor.encrypted('Z');
                             keyLightUp();
                             break;
                         case Key.D0:
                             tbxInput.Text += ')';
-                            tbxOutput.Text += EnigmaClass.encrypted(')');
+                            tbxOutput.Text += Rotor.encrypted(')');
                             keyLightUp();
                             break;
                         case Key.D1:
                             tbxInput.Text += '!';
-                            tbxOutput.Text += EnigmaClass.encrypted('!');
+                            tbxOutput.Text += Rotor.encrypted('!');
                             keyLightUp();
                             break;
                         case Key.D2:
                             tbxInput.Text += '@';
-                            tbxOutput.Text += EnigmaClass.encrypted('@');
+                            tbxOutput.Text += Rotor.encrypted('@');
                             keyLightUp();
                             break;
                         case Key.D3:
                             tbxInput.Text += '#';
-                            tbxOutput.Text += EnigmaClass.encrypted('#');
+                            tbxOutput.Text += Rotor.encrypted('#');
                             keyLightUp();
                             break;
                         case Key.D4:
                             tbxInput.Text += '$';
-                            tbxOutput.Text += EnigmaClass.encrypted('$');
+                            tbxOutput.Text += Rotor.encrypted('$');
                             keyLightUp();
                             break;
                         case Key.D5:
                             tbxInput.Text += '%';
-                            tbxOutput.Text += EnigmaClass.encrypted('%');
+                            tbxOutput.Text += Rotor.encrypted('%');
                             keyLightUp();
                             break;
                         case Key.D6:
                             tbxInput.Text += '^';
-                            tbxOutput.Text += EnigmaClass.encrypted('^');
+                            tbxOutput.Text += Rotor.encrypted('^');
                             keyLightUp();
                             break;
                         case Key.D7:
                             tbxInput.Text += '&';
-                            tbxOutput.Text += EnigmaClass.encrypted('&');
+                            tbxOutput.Text += Rotor.encrypted('&');
                             keyLightUp();
                             break;
                         case Key.D8:
                             tbxInput.Text += '*';
-                            tbxOutput.Text += EnigmaClass.encrypted('*');
+                            tbxOutput.Text += Rotor.encrypted('*');
                             keyLightUp();
                             break;
                         case Key.D9:
                             tbxInput.Text += '(';
-                            tbxOutput.Text += EnigmaClass.encrypted('(');
+                            tbxOutput.Text += Rotor.encrypted('(');
                             keyLightUp();
                             break;
                         case Key.Oem1:
                             tbxInput.Text += ':';
-                            tbxOutput.Text += EnigmaClass.encrypted(':');
+                            tbxOutput.Text += Rotor.encrypted(':');
                             keyLightUp();
                             break;
                         case Key.Oem2:
                             tbxInput.Text += '?';
-                            tbxOutput.Text += EnigmaClass.encrypted('?');
+                            tbxOutput.Text += Rotor.encrypted('?');
                             keyLightUp();
                             break;
                         case Key.Oem4:
                             tbxInput.Text += '{';
-                            tbxOutput.Text += EnigmaClass.encrypted('{');
+                            tbxOutput.Text += Rotor.encrypted('{');
                             keyLightUp();
                             break;
                         case Key.Oem5:
                             tbxInput.Text += '|';
-                            tbxOutput.Text += EnigmaClass.encrypted('|');
+                            tbxOutput.Text += Rotor.encrypted('|');
                             keyLightUp();
                             break;
                         case Key.Oem6:
                             tbxInput.Text += '}';
-                            tbxOutput.Text += EnigmaClass.encrypted('}');
+                            tbxOutput.Text += Rotor.encrypted('}');
                             keyLightUp();
                             break;
                         case Key.OemComma:
                             tbxInput.Text += '<';
-                            tbxOutput.Text += EnigmaClass.encrypted('<');
+                            tbxOutput.Text += Rotor.encrypted('<');
                             keyLightUp();
                             break;
                         case Key.OemPeriod:
                             tbxInput.Text += '>';
-                            tbxOutput.Text += EnigmaClass.encrypted('>');
+                            tbxOutput.Text += Rotor.encrypted('>');
                             keyLightUp();
                             break;
                         case Key.OemMinus:
                             tbxInput.Text += '_';
-                            tbxOutput.Text += EnigmaClass.encrypted('_');
+                            tbxOutput.Text += Rotor.encrypted('_');
                             keyLightUp();
                             break;
                         case Key.OemPlus:
                             tbxInput.Text += '+';
-                            tbxOutput.Text += EnigmaClass.encrypted('+');
+                            tbxOutput.Text += Rotor.encrypted('+');
                             keyLightUp();
                             break;
                         case Key.OemQuotes:
                             tbxInput.Text += '"';
-                            tbxOutput.Text += EnigmaClass.encrypted('"');
+                            tbxOutput.Text += Rotor.encrypted('"');
                             keyLightUp();
                             break;
                         case Key.Space:
                             tbxInput.Text += ' ';
-                            tbxOutput.Text += EnigmaClass.encrypted(' ');
+                            tbxOutput.Text += Rotor.encrypted(' ');
                             keyLightUp();
                             break;
                     }
@@ -830,271 +872,265 @@ namespace AFRIDAY
                     {
                         case Key.A:
                             tbxInput.Text += 'a';
-                            tbxOutput.Text += EnigmaClass.encrypted('a');
+                            tbxOutput.Text += Rotor.encrypted('a');
                             keyLightUp();
                             break;
                         case Key.B:
                             tbxInput.Text += 'b';
-                            tbxOutput.Text += EnigmaClass.encrypted('b');
+                            tbxOutput.Text += Rotor.encrypted('b');
                             keyLightUp();
                             break;
                         case Key.C:
                             tbxInput.Text += 'c';
-                            tbxOutput.Text += EnigmaClass.encrypted('c');
+                            tbxOutput.Text += Rotor.encrypted('c');
                             keyLightUp();
                             break;
                         case Key.D:
                             tbxInput.Text += 'd';
-                            tbxOutput.Text += EnigmaClass.encrypted('d');
+                            tbxOutput.Text += Rotor.encrypted('d');
                             keyLightUp();
                             break;
                         case Key.E:
                             tbxInput.Text += 'e';
-                            tbxOutput.Text += EnigmaClass.encrypted('e');
+                            tbxOutput.Text += Rotor.encrypted('e');
                             keyLightUp();
                             break;
                         case Key.F:
                             tbxInput.Text += 'f';
-                            tbxOutput.Text += EnigmaClass.encrypted('f');
+                            tbxOutput.Text += Rotor.encrypted('f');
                             keyLightUp();
                             break;
                         case Key.G:
                             tbxInput.Text += 'g';
-                            tbxOutput.Text += EnigmaClass.encrypted('g');
+                            tbxOutput.Text += Rotor.encrypted('g');
                             keyLightUp();
                             break;
                         case Key.H:
                             tbxInput.Text += 'h';
-                            tbxOutput.Text += EnigmaClass.encrypted('h');
+                            tbxOutput.Text += Rotor.encrypted('h');
                             keyLightUp();
                             break;
                         case Key.I:
                             tbxInput.Text += 'i';
-                            tbxOutput.Text += EnigmaClass.encrypted('i');
+                            tbxOutput.Text += Rotor.encrypted('i');
                             keyLightUp();
                             break;
                         case Key.J:
                             tbxInput.Text += 'j';
-                            tbxOutput.Text += EnigmaClass.encrypted('j');
+                            tbxOutput.Text += Rotor.encrypted('j');
                             keyLightUp();
                             break;
                         case Key.K:
                             tbxInput.Text += 'k';
-                            tbxOutput.Text += EnigmaClass.encrypted('k');
+                            tbxOutput.Text += Rotor.encrypted('k');
                             keyLightUp();
                             break;
                         case Key.L:
                             tbxInput.Text += 'l';
-                            tbxOutput.Text += EnigmaClass.encrypted('l');
+                            tbxOutput.Text += Rotor.encrypted('l');
                             keyLightUp();
                             break;
                         case Key.M:
                             tbxInput.Text += 'm';
-                            tbxOutput.Text += EnigmaClass.encrypted('m');
+                            tbxOutput.Text += Rotor.encrypted('m');
                             keyLightUp();
                             break;
                         case Key.N:
                             tbxInput.Text += 'n';
-                            tbxOutput.Text += EnigmaClass.encrypted('n');
+                            tbxOutput.Text += Rotor.encrypted('n');
                             keyLightUp();
                             break;
                         case Key.O:
                             tbxInput.Text += 'o';
-                            tbxOutput.Text += EnigmaClass.encrypted('o');
+                            tbxOutput.Text += Rotor.encrypted('o');
                             keyLightUp();
                             break;
                         case Key.P:
                             tbxInput.Text += 'p';
-                            tbxOutput.Text += EnigmaClass.encrypted('p');
+                            tbxOutput.Text += Rotor.encrypted('p');
                             keyLightUp();
                             break;
                         case Key.Q:
                             tbxInput.Text += 'q';
-                            tbxOutput.Text += EnigmaClass.encrypted('q');
+                            tbxOutput.Text += Rotor.encrypted('q');
                             keyLightUp();
                             break;
                         case Key.R:
                             tbxInput.Text += 'r';
-                            tbxOutput.Text += EnigmaClass.encrypted('r');
+                            tbxOutput.Text += Rotor.encrypted('r');
                             keyLightUp();
                             break;
                         case Key.S:
                             tbxInput.Text += 's';
-                            tbxOutput.Text += EnigmaClass.encrypted('s');
+                            tbxOutput.Text += Rotor.encrypted('s');
                             keyLightUp();
                             break;
                         case Key.T:
                             tbxInput.Text += 't';
-                            tbxOutput.Text += EnigmaClass.encrypted('t');
+                            tbxOutput.Text += Rotor.encrypted('t');
                             keyLightUp();
                             break;
                         case Key.U:
                             tbxInput.Text += 'u';
-                            tbxOutput.Text += EnigmaClass.encrypted('u');
+                            tbxOutput.Text += Rotor.encrypted('u');
                             keyLightUp();
                             break;
                         case Key.V:
                             tbxInput.Text += 'v';
-                            tbxOutput.Text += EnigmaClass.encrypted('v');
+                            tbxOutput.Text += Rotor.encrypted('v');
                             keyLightUp();
                             break;
                         case Key.W:
                             tbxInput.Text += 'w';
-                            tbxOutput.Text += EnigmaClass.encrypted('w');
+                            tbxOutput.Text += Rotor.encrypted('w');
                             keyLightUp();
                             break;
                         case Key.X:
                             tbxInput.Text += 'x';
-                            tbxOutput.Text += EnigmaClass.encrypted('x');
+                            tbxOutput.Text += Rotor.encrypted('x');
                             keyLightUp();
                             break;
                         case Key.Y:
                             tbxInput.Text += 'y';
-                            tbxOutput.Text += EnigmaClass.encrypted('y');
+                            tbxOutput.Text += Rotor.encrypted('y');
                             keyLightUp();
                             break;
                         case Key.Z:
                             tbxInput.Text += 'z';
-                            tbxOutput.Text += EnigmaClass.encrypted('z');
+                            tbxOutput.Text += Rotor.encrypted('z');
                             keyLightUp();
                             break;
                         case Key.NumPad0:
                         case Key.D0:
                             tbxInput.Text += '0';
-                            tbxOutput.Text += EnigmaClass.encrypted('0');
+                            tbxOutput.Text += Rotor.encrypted('0');
                             keyLightUp();
                             break;
                         case Key.NumPad1:
                         case Key.D1:
                             tbxInput.Text += '1';
-                            tbxOutput.Text += EnigmaClass.encrypted('1');
+                            tbxOutput.Text += Rotor.encrypted('1');
                             keyLightUp();
                             break;
                         case Key.NumPad2:
                         case Key.D2:
                             tbxInput.Text += '2';
-                            tbxOutput.Text += EnigmaClass.encrypted('2');
+                            tbxOutput.Text += Rotor.encrypted('2');
                             keyLightUp();
                             break;
                         case Key.NumPad3:
                         case Key.D3:
                             tbxInput.Text += '3';
-                            tbxOutput.Text += EnigmaClass.encrypted('3');
+                            tbxOutput.Text += Rotor.encrypted('3');
                             keyLightUp();
                             break;
                         case Key.NumPad4:
                         case Key.D4:
                             tbxInput.Text += '4';
-                            tbxOutput.Text += EnigmaClass.encrypted('4');
+                            tbxOutput.Text += Rotor.encrypted('4');
                             keyLightUp();
                             break;
                         case Key.NumPad5:
                         case Key.D5:
                             tbxInput.Text += '5';
-                            tbxOutput.Text += EnigmaClass.encrypted('5');
+                            tbxOutput.Text += Rotor.encrypted('5');
                             keyLightUp();
                             break;
                         case Key.NumPad6:
                         case Key.D6:
                             tbxInput.Text += '6';
-                            tbxOutput.Text += EnigmaClass.encrypted('6');
+                            tbxOutput.Text += Rotor.encrypted('6');
                             keyLightUp();
                             break;
                         case Key.NumPad7:
                         case Key.D7:
                             tbxInput.Text += '7';
-                            tbxOutput.Text += EnigmaClass.encrypted('7');
+                            tbxOutput.Text += Rotor.encrypted('7');
                             keyLightUp();
                             break;
                         case Key.NumPad8:
                         case Key.D8:
                             tbxInput.Text += '8';
-                            tbxOutput.Text += EnigmaClass.encrypted('8');
+                            tbxOutput.Text += Rotor.encrypted('8');
                             keyLightUp();
                             break;
                         case Key.NumPad9:
                         case Key.D9:
                             tbxInput.Text += '9';
-                            tbxOutput.Text += EnigmaClass.encrypted('9');
+                            tbxOutput.Text += Rotor.encrypted('9');
                             keyLightUp();
                             break;
                         case Key.Oem1:
                             tbxInput.Text += ';';
-                            tbxOutput.Text += EnigmaClass.encrypted(';');
+                            tbxOutput.Text += Rotor.encrypted(';');
                             keyLightUp();
                             break;
                         case Key.Divide:
                         case Key.Oem2:
                             tbxInput.Text += '/';
-                            tbxOutput.Text += EnigmaClass.encrypted('/');
+                            tbxOutput.Text += Rotor.encrypted('/');
                             keyLightUp();
                             break;
                         case Key.Oem4:
                             tbxInput.Text += '[';
-                            tbxOutput.Text += EnigmaClass.encrypted('[');
+                            tbxOutput.Text += Rotor.encrypted('[');
                             keyLightUp();
                             break;
                         case Key.Oem5:
                             tbxInput.Text += '\\';
-                            tbxOutput.Text += EnigmaClass.encrypted('\\');
+                            tbxOutput.Text += Rotor.encrypted('\\');
                             keyLightUp();
                             break;
                         case Key.Oem6:
                             tbxInput.Text += ']';
-                            tbxOutput.Text += EnigmaClass.encrypted(']');
+                            tbxOutput.Text += Rotor.encrypted(']');
                             keyLightUp();
                             break;
                         case Key.OemComma:
                             tbxInput.Text += ',';
-                            tbxOutput.Text += EnigmaClass.encrypted(',');
+                            tbxOutput.Text += Rotor.encrypted(',');
                             keyLightUp();
                             break;
                         case Key.OemPeriod:
                         case Key.Decimal:
                             tbxInput.Text += '.';
-                            tbxOutput.Text += EnigmaClass.encrypted('.');
+                            tbxOutput.Text += Rotor.encrypted('.');
                             keyLightUp();
                             break;
                         case Key.Subtract:
                         case Key.OemMinus:
                             tbxInput.Text += '-';
-                            tbxOutput.Text += EnigmaClass.encrypted('-');
+                            tbxOutput.Text += Rotor.encrypted('-');
                             keyLightUp();
                             break;
                         case Key.OemPlus:
                             tbxInput.Text += '=';
-                            tbxOutput.Text += EnigmaClass.encrypted('=');
+                            tbxOutput.Text += Rotor.encrypted('=');
                             keyLightUp();
                             break;
                         case Key.Add:
                             tbxInput.Text += '+';
-                            tbxOutput.Text += EnigmaClass.encrypted('+');
+                            tbxOutput.Text += Rotor.encrypted('+');
                             keyLightUp();
                             break;
                         case Key.Multiply:
                             tbxInput.Text += '*';
-                            tbxOutput.Text += EnigmaClass.encrypted('*');
+                            tbxOutput.Text += Rotor.encrypted('*');
                             keyLightUp();
                             break;
                         case Key.OemQuotes:
                             tbxInput.Text += '\'';
-                            tbxOutput.Text += EnigmaClass.encrypted('\'');
+                            tbxOutput.Text += Rotor.encrypted('\'');
                             keyLightUp();
                             break;
                         case Key.Space:
                             tbxInput.Text += ' ';
-                            tbxOutput.Text += EnigmaClass.encrypted(' ');
+                            tbxOutput.Text += Rotor.encrypted(' ');
                             keyLightUp();
                             break;
-                            //case Key.OemQuotes:
-                            //    tbxInput.Text += "'";
-                            //    tbxOutput.Text += EnigmaClass.encrypted('"');
-                            //    keyLightUp();
-                            //    break;
-
 
                     }
-                    //updateDisplayCount();
+                    updateDisplayCount();
                 }
             }
         }
@@ -1106,8 +1142,8 @@ namespace AFRIDAY
                 switch (e.Key)
                 {
                     case Key.Enter:
-                        EnigmaClass.inputTextbox('\n');
-                        EnigmaClass.textboxOutput.Add('\n');
+                        Rotor.inputTextbox('\n');
+                        Rotor.txtbOutput.Add('\n');
                         tbxInput.Text += '\n';
                         tbxOutput.Text += '\n';
                         for (int x = 0; x < key.Length; x++)
@@ -1118,7 +1154,7 @@ namespace AFRIDAY
                         break;
                     case Key.Space:
                         tbxInput.Text += ' ';
-                        tbxOutput.Text += EnigmaClass.encrypted(' ');
+                        tbxOutput.Text += Rotor.encrypted(' ');
                         keyLightUp();
                         break;
 
@@ -1130,24 +1166,24 @@ namespace AFRIDAY
                     case Key.Back:
                         if (tbxInput.Text.Length > 0 && tbxOutput.Text.Length > 0)
                         {
-                            for (int x = EnigmaClass.textboxInput.Count - 1; x >= 0; x--)
+                            for (int x = Rotor.txtbInput.Count - 1; x >= 0; x--)
                             {
-                                if (EnigmaClass.textboxInput[x] == '\n')
+                                if (Rotor.txtbInput[x] == '\n')
                                 {
-                                    tbxInput.Text = EnigmaClass.backspaceInput();
-                                    tbxOutput.Text = EnigmaClass.backspaceOutput();
+                                    tbxInput.Text = Rotor.backspaceInput();
+                                    tbxOutput.Text = Rotor.backspaceOutput();
                                     break;
                                 }
                                 else
                                 {
-                                    EnigmaClass.reverseRotor();
-                                    tbxInput.Text = EnigmaClass.backspaceInput();
-                                    tbxOutput.Text = EnigmaClass.backspaceOutput();
+                                    Rotor.reverseRotor();
+                                    tbxInput.Text = Rotor.backspaceInput();
+                                    tbxOutput.Text = Rotor.backspaceOutput();
                                     break;
                                 }
                             }
                         }
-                        //updateDisplayCount();
+                        updateDisplayCount();
                         for (int x = 0; x < key.Length; x++)
                         {
                             key[x].Fill = originalColor;
@@ -1168,16 +1204,16 @@ namespace AFRIDAY
                 //lblRingCount.Content = "Ring Count: ";
                 //lblRingContentCount.Content = "Ring Count Content: ";
                 DisableEventHandlers();
-                //EnigmaClass.ClearRingLines();
+                //Rotor.ClearRingLines();
                 tbxInput.Text = "";
                 tbxOutput.Text = "";
                 cbxReflector.IsChecked = false;
-                EnigmaClass.textboxInput.Clear();
-                EnigmaClass.textboxOutput.Clear();
-                EnigmaClass.ringSelection = new int[3] { 0, 0, 0 };
-                EnigmaClass.ringSettings = new int[3] { 0, 0, 0 };               
+                Rotor.txtbInput.Clear();
+                Rotor.txtbOutput.Clear();
+                Rotor.ringSelection = new int[3] { 0, 0, 0 };
+                Rotor.ringSettings = new int[3] { 0, 0, 0 };               
                 updateDisplayCount();
-                EnigmaClass.offsetRotors();
+                Rotor.offsetRotors();
                 btnSetIsClicked = false;
                 DisableEventHandlers();
                 btnPlusSeconds1.IsEnabled = false;
@@ -1195,7 +1231,7 @@ namespace AFRIDAY
                 btnSet.IsEnabled = false;
                 cbxReflector.IsEnabled = true;
                 MenuOpen.IsEnabled = true;                
-                EnigmaClass.checkboxIsChecked = false;
+                Rotor.checkboxIsChecked = false;
                 for (int x = 0; x < key.Length; x++)
                 {
                     key[x].Fill = originalColor;
@@ -1407,6 +1443,8 @@ namespace AFRIDAY
                 // Event handlers are disabled, do nothing
                 return;
             }
+
+
 
             if (shiftKeyPressed)
             {
