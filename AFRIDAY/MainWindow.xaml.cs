@@ -29,12 +29,10 @@ namespace AFRIDAY
         Label[] keyLabels = new Label[93];
         Ellipse[] key = new Ellipse[93];
         readonly Dictionary<Key, Label> labelMappings;
-        SolidColorBrush outputColor = new SolidColorBrush();
-        SolidColorBrush originalColor = new SolidColorBrush();
-        SolidColorBrush labelOutputColor = new SolidColorBrush();
-        SolidColorBrush labelOriginalColor = new SolidColorBrush();
-        //string defaultMessage = "Your Message will appear here"; // Default message text
-        //string eMessage = "Encrypted Message will appear here"; // Default message text
+        SolidColorBrush outColor = new SolidColorBrush(); //Color when clicked
+        SolidColorBrush origColor = new SolidColorBrush(); //BGcolor of the eclipse
+        SolidColorBrush lblOutColor = new SolidColorBrush(); //Color of the label
+        SolidColorBrush lblOrigColor = new SolidColorBrush(); //OriginalColor
 
         public MainWindow()
         {
@@ -231,15 +229,14 @@ namespace AFRIDAY
             keyLabels[92] = lbl93;
             
 
-            outputColor.Color = Color.FromRgb(204, 200, 170); //Color when clicked
-            originalColor.Color = Color.FromRgb(125, 124, 124); //BGcolor of the eclipse
-            labelOutputColor.Color = Color.FromRgb(0, 0, 0); //Color of the label
-            labelOriginalColor.Color = Color.FromRgb(255, 255, 255); //ewan ko
+            outColor.Color = Color.FromRgb(204, 200, 170); //Color when clicked
+            origColor.Color = Color.FromRgb(125, 124, 124); //BGcolor of the eclipse
+            lblOutColor.Color = Color.FromRgb(0, 0, 0); //Color of the label
+            lblOrigColor.Color = Color.FromRgb(255, 255, 255); //ewan ko
    
             labelMappings = new Dictionary<Key, Label>
             {
                 //`12345
-                //{ Key.Oem3, grave },
                 { Key.D1, one },
                 { Key.D2, two },
                 { Key.D3, three },
@@ -312,8 +309,8 @@ namespace AFRIDAY
                 string outputLastElement = tbxOutput.Text.Last().ToString();
                 if (outputLastElement == label)
                 {
-                    key[x].Fill = outputColor;
-                    keyLabels[x].Foreground = labelOutputColor;
+                    key[x].Fill = outColor;
+                    keyLabels[x].Foreground = lblOutColor;
                 }
                 else if (outputLastElement == " ")
                 {
@@ -321,20 +318,20 @@ namespace AFRIDAY
                     {
                         if (y == 93)
                         {
-                            key[93].Fill = outputColor;
-                            keyLabels[93].Foreground = labelOutputColor;
+                            key[93].Fill = outColor;
+                            keyLabels[93].Foreground = lblOutColor;
                         }
                         else
                         {
-                            key[x].Fill = originalColor;
-                            keyLabels[x].Foreground = labelOriginalColor;
+                            key[x].Fill = origColor;
+                            keyLabels[x].Foreground = lblOrigColor;
                         }
                     }
                 }
                 else if (outputLastElement != label)
                 {
-                    key[x].Fill = originalColor;
-                    keyLabels[x].Foreground = labelOriginalColor;
+                    key[x].Fill = origColor;
+                    keyLabels[x].Foreground = lblOrigColor;
                 }
             }
         }
@@ -1148,8 +1145,8 @@ namespace AFRIDAY
                         tbxOutput.Text += '\n';
                         for (int x = 0; x < key.Length; x++)
                         {
-                            key[x].Fill = originalColor;
-                            keyLabels[x].Foreground = labelOriginalColor;
+                            key[x].Fill = origColor;
+                            keyLabels[x].Foreground = lblOrigColor;
                         }
                         break;
                     case Key.Space:
@@ -1186,8 +1183,8 @@ namespace AFRIDAY
                         updateDisplayCount();
                         for (int x = 0; x < key.Length; x++)
                         {
-                            key[x].Fill = originalColor;
-                            keyLabels[x].Foreground = labelOriginalColor;
+                            key[x].Fill = origColor;
+                            keyLabels[x].Foreground = lblOrigColor;
                         }
                         break;
                 }
@@ -1234,8 +1231,8 @@ namespace AFRIDAY
                 Rotor.checkboxIsChecked = false;
                 for (int x = 0; x < key.Length; x++)
                 {
-                    key[x].Fill = originalColor;
-                    keyLabels[x].Foreground = labelOriginalColor;
+                    key[x].Fill = origColor;
+                    keyLabels[x].Foreground = lblOrigColor;
                 }
                 MessageBox.Show("The Enigma setup is RESET.\nSelect another CSV File.", "Enigma", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -1252,7 +1249,7 @@ namespace AFRIDAY
             if (e.Key == Key.LeftShift || e.Key == Key.RightShift) // Handle the Shift key
             {
                 shiftKeyPressed = true;
-                shift.Background = outputColor; // Change UI element appearance
+                shift.Background = outColor; // Change UI element appearance
                 // Replace letters with symbols
                 if (shiftKeyPressed)
                 {
@@ -1315,7 +1312,7 @@ namespace AFRIDAY
                 {
                     capsLockEnabled = !capsLockEnabled; // Toggle Caps Lock state              
                     shiftlock.Content = capsLockEnabled ? "Caps Lock" : "Shift Lock";  // Update your Shift Lock label text or appearance here
-                    shiftlock.Background = outputColor;
+                    shiftlock.Background = outColor;
                     if (capsLockEnabled)
                     {
                         // Replace letters with symbols
@@ -1428,7 +1425,7 @@ namespace AFRIDAY
                 // Handle key press event to change the label background color.
                 if (labelMappings.TryGetValue(e.Key, out var targetLabel))
                 {
-                    targetLabel.Background = outputColor;
+                    targetLabel.Background = outColor;
                 }
                 if(e.Key == Key.Back)
             {
